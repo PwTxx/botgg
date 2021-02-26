@@ -1004,7 +1004,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
                 		addKoinUser(tujuantf, hasiltf)
                 		confirmATM(sender, jumblah)
                 		addKoinUser('553398091185@s.whatsapp.net', fee)
-                		reply(`*「 SUKSES 」*\n\nPengiriman uang telah sukses\nDari : +${sender.split("@")[0]}\nKe : +${tujuan}\njJumlah transfer : ${jumblah}\nPajak : ${fee}`)
+                		reply(`*「 SUCESSO 」*\n\nTransferência de dinheiro bem sucedida\nA partir de : +${sender.split("@")[0]}\nDe : +${tujuan}\njJumlah transfer : ${jumblah}\nImposto : ${fee}`)
                 		break
               case 'hai':
               case 'hi':
@@ -1079,10 +1079,11 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				reply(`Berhasil menambahkan admin bot wa.me/${adm} `)
 				break
                 case 'wakillist':
+                case 'adminlist':
 				itsmeiky.updatePresence(from, Presence.composing) 
 				 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())    
-				teks = 'This is list of admin bot number :\n'
+				teks = 'Esta é a lista do número do bot de administrador :\n'
 				for (let admm of adm) {
 					teks += `~> @${admm.split('@')[0]}\n`
 					}
@@ -1094,20 +1095,20 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				premm = body.slice(9)
 				prem.push(`${premm}@s.whatsapp.net`)
 				fs.writeFileSync('./database/user/premium.json', JSON.stringify(prem))
-				reply(`Berhasil menjadi premium wa.me/${premm} `)
+				reply(`Conseguiu se tornar premium wa.me/${premm} `)
 				break
 		case 'unpremium':
 				if (!isOwner) return reply(ind.ownerb())
 				premm = body.slice(11)
 				prem.splice(`${premm}@s.whatsapp.net`, 1)
 				fs.writeFileSync('./database/user/premium.json', JSON.stringify(prem))
-				reply(`Nomor sudah berakhir menjadi premium wa.me/${premm} `)
+				reply(`Os números acabaram sendo premium wa.me/${premm} `)
 				break
                 case 'premiumlist':
 				itsmeiky.updatePresence(from, Presence.composing) 
 				 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())    
-				teks = 'This is list of premium number :\n'
+				teks = 'Esta é a lista de números premium :\n'
 				for (let premm of prem) {
 					teks += `~> @${premm.split('@')[0]}\n`
 					}
@@ -1115,38 +1116,38 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				itsmeiky.sendMessage(from, teks.trim(), extendedText, {quoted: iky, contextInfo: {"mentionedJid": prem}})
 				break
                 case 'bann':
-				if (!isAdmin) return reply('*Only Admin bot*')
+				if (!isAdmin) return reply('*Apenas Admin bot*')
 				bnnd = body.slice(5)
 				ban.push(`${bnnd}@s.whatsapp.net`)
 				fs.writeFileSync('./database/user/banned.json', JSON.stringify(ban))
-				reply(`Berhasil membanned nomor : wa.me/${bnnd} `)
+				reply(`Número banido com sucesso : wa.me/${bnnd} `)
 				break
 		case 'unbann':
 				if (!isAdmin) return reply('*Only Admin bot*')
 				bnnd = body.slice(7)
 				ban.splice(`${bnnd}@s.whatsapp.net`, 1)
 				fs.writeFileSync('./database/user/banned.json', JSON.stringify(ban))
-				reply(`Nomor wa.me/${bnnd} telah di unban!`)
+				reply(`Número wa.me/${bnnd} foi desbanido!`)
 				break
                 case 'ban':
 				if (!isOwner) return reply(ind.ownerb())
 				bnnd = body.slice(5)
 				ban.push(`${bnnd}@s.whatsapp.net`)
 				fs.writeFileSync('./database/user/banned.json', JSON.stringify(ban))
-				reply(`Berhasil membanned nomor : wa.me/${bnnd} `)
+				reply(`Número banido com sucesso : wa.me/${bnnd} `)
 				break
 		case 'unban':
 				if (!isOwner) return reply(ind.ownerb())
 				bnnd = body.slice(7)
 				ban.splice(`${bnnd}@s.whatsapp.net`, 1)
 				fs.writeFileSync('./database/user/banned.json', JSON.stringify(ban))
-				reply(`Nomor wa.me/${bnnd} telah di unban!`)
+				reply(`Número wa.me/${bnnd} foi desbanido!`)
 				break
                 case 'banlist':
 				itsmeiky.updatePresence(from, Presence.composing) 
 				 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())    
-				teks = 'This is list of banned number :\n'
+				teks = 'Esta é a lista de números banidos :\n'
 				for (let benn of ban) {
 					teks += `~> @${benn.split('@')[0]}\n`
 					}
@@ -1175,6 +1176,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				}
 				break
 		case 'kalkulator':
+		case 'calc':
 				 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
@@ -1203,11 +1205,11 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				payout = body.slice(10)
 				const koinPerlimit = 2000
 				const total = koinPerlimit * payout
-				if ( checkATMuser(sender) <= total) return reply(`Maaf uang kamu belum mencukupi. silahkan kumpulkan dan beli nanti`)
+				if ( checkATMuser(sender) <= total) return reply(`Desculpe, você não tem dinheiro suficiente. por favor colete e compre mais tarde`)
 				if ( checkATMuser(sender) >= total ) {
 					confirmATM(sender, total)
 					bayarLimit(sender, payout)
-					await reply(`*「 PEMBAYARAN BERHASIL 」*\n\n*Pengirim* : Admin\n*Penerima* : ${pushname}\n*Nominal pembelian* : ${payout} \n*Harga limit* : ${koinPerlimit}/limit\n*Sisa uang mu* : ${checkATMuser(sender)}\n\nProses berhasil dengan nomer pembayaran\n${createSerial(20)}`)
+					await reply(`*「 PAGAMENTO DE SUCESSO 」*\n\n*Remetente* : Admin\n*Receptor* : ${pushname}\n*Compra nominal* : ${payout} \n*Limite de preço* : ${koinPerlimit}/limit\n*O resto do seu dinheiro* : ${checkATMuser(sender)}\n\nProcesso bem sucedido com número de pagamento\n${createSerial(20)}`)
 				} 
 				break
 		case 'buypremiumlimit':
@@ -1274,7 +1276,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				if (isBanned) return reply('Desculpe você foi pego!')
 				data = await fetchJson(`https://tobz-api.herokuapp.com/api/happymod?q=${body.slice(10)}&apikey=BotWeA`)
 				hupo = data.result[0] 
-				teks = `*Nama*: ${data.result[0].title}\n*version*: ${hupo.version}\n*size:* ${hupo.size}\n*root*: ${hupo.root}\n*purchase*: ${hupo.price}\n*link*: ${hupo.link}\n*download*: ${hupo.download}`
+				teks = `*Nome*: ${data.result[0].title}\n*versão*: ${hupo.version}\n*tamanho:* ${hupo.size}\n*root*: ${hupo.root}\n*compra*: ${hupo.price}\n*link*: ${hupo.link}\n*download*: ${hupo.download}`
 				buffer = await getBuffer(hupo.image)
 				itsmeiky.sendMessage(from, buffer, image, {quoted: iky, caption: `${teks}`})
 				await limitAdd(sender)
@@ -1337,6 +1339,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				await limitAdd(sender)
 				break
                 case 'nangis':
+                case 'chorar':
 				 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
@@ -1536,7 +1539,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				itsmeiky.sendMessage(from, ct, image, {caption: 'Nih kak udah jadi..', quoted: iky})
 				await limitAdd(sender)
 				break
-		/*case 'nulis2':
+		case 'nulis2':
 				const textnulis = body.slice(7)
 				let inputPath ='./lib/magernulis1.jpg'
  			   let outputPath = './tmp/hasil.jpg'
@@ -1585,7 +1588,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
  				 .on('exit', () => {
   			  itsmeiky.sendMessage(from, outputPath, image, {quoted: iky, caption : ' nih sayang, jangan mager ya sayang'})
   			}))
-  			  break*/
+  			  break
 		case 'bplogo':
 				 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
@@ -1772,7 +1775,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				reply(ind.wait())
 				anu = await fetchJson(`https://tobz-api.herokuapp.com/api/randomkpop?apikey=BotWeA`, {method: 'get'})
 				buffer = await getBuffer(anu.result)
-				itsmeiky.sendMessage(from, buffer, image, {quoted: iky, caption: 'Nih kpopnya kak...'})
+				itsmeiky.sendMessage(from, buffer, image, {quoted: iky, caption: '@tiago.lve...'})
 				await limitAdd(sender)
 				break
 		case 'aesthetic':
@@ -1784,7 +1787,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				reply(ind.wait())
 				anu = await fetchJson(`https://api.zeks.xyz/api/estetikpic?apikey=apivinz`, {method: 'get'})
 				buffer = await getBuffer(anu.result.result)
-				itsmeiky.sendMessage(from, buffer, image, {quoted: iky, caption: 'Nih aestheticnya kak...'})
+				itsmeiky.sendMessage(from, buffer, image, {quoted: iky, caption: '@tiago.lve...'})
 				await limitAdd(sender)
 				break
                 case 'joox':
@@ -1812,7 +1815,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				play = body.slice(5)
 				anu = await fetchJson(`https://api.zeks.xyz/api/ytplaymp3?q=${play}&apikey=apivinz`)
 				if (anu.error) return reply(anu.error)
-				infomp3 = `*Lagu Ditemukan!!!*\nJudul : ${anu.result.title}\nSource : ${anu.result.source}\nUkuran : ${anu.result.size}\n\n*TUNGGU SEBENTAR LAGI DIKIRIM MOHON JANGAN SPAM YA SAYANG*`
+				infomp3 = `*Música encontrada!!!*\nTitulo : ${anu.result.title}\nFonte : ${anu.result.source}\nTamanho : ${anu.result.size}\n\n*Enquanto Eu Baixo Sua Música, Me Segue No Insta @tiago.lve*`
 				buffer = await getBuffer(anu.result.thumbnail)
 				itsmeiky.sendMessage(from, buffer, image, {quoted: iky, caption: infomp3})
 				lagu = await getBuffer(anu.result.url_audio)
@@ -1864,7 +1867,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				const aruga2 = q.substring(q.lastIndexOf('|') + 1)
 				reply(ind.wait())
 				aruga = await getBuffer(`https://arugaz.my.id/api/textpro/avengers?text1=${aruga1}&text2=${aruga2}`)
-				itsmeiky.sendMessage(from, aruga, image, {caption: 'Nih kak', quoted: iky})
+				itsmeiky.sendMessage(from, aruga, image, {caption: '@tiago.lve', quoted: iky})
 				await limitAdd(sender)
 				break 
 		case 'summer':
@@ -2059,7 +2062,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
 				if (isBanned) return reply('Desculpe você foi pego!')
 					data = await fetchJson(`https://videfikri.com/api/covidindo/`)
-					hasil = `Positif : ${data.result.positif}\nSembuh : ${data.result.sembuh}\nMeninggal : ${data.result.meninggal}\nDirawat : ${data.result.dalam_perawatan}`
+					hasil = `Positivo : ${data.result.positif}\nCurado : ${data.result.sembuh}\nMorreu : ${data.result.meninggal}\nSer tratado : ${data.result.dalam_perawatan}`
 					reply(hasil)
 					await limitAdd(sender)
 					break		
@@ -2070,7 +2073,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				itsmeiky.updatePresence(from, Presence.composing) 
 			    tels = body.slice(12)
 				asu = await fetchJson(`http://lolhuman.herokuapp.com/api/corona/global?apikey=WEMPYGANSS`)
-				ez = `*╠➥  Positif :* ${asu.result.positif}\n*╠➥  Sembuh :* ${asu.result.sembuh}\n*╠➥  Di Rawat :* ${asu.result.dirawat}\n*╠➥  Meninggal :* ${asu.result.meninggal}\n`
+				ez = `*╠➥  Positivo :* ${asu.result.positif}\n*╠➥  Curado :* ${asu.result.sembuh}\n*╠➥  No Hospital :* ${asu.result.dirawat}\n*╠➥  Morreu :* ${asu.result.meninggal}\n`
 				reply(ez)
 				await limitAdd(sender)
 					break
@@ -2125,6 +2128,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					await limitAdd(sender)
 					break
 		case 'infocuaca':
+		case 'infoclima':
 					tels = body.slice(11)
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
@@ -2132,7 +2136,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				if (isBanned) return reply('Desculpe você foi pego!')
 					anu = await fetchJson(`https://tobz-api.herokuapp.com/api/cuaca?wilayah=${tels}&apikey=BotWeA`, {method: 'get'})
 					if (anu.error) return reply(anu.error)
-					hasil = `*Tempat* : ${anu.result.tempat}\n*Cuaca* : ${anu.result.cuaca}\n*Angin* : ${anu.result.angin}\n*Suhu* : ${anu.result.suhu}\n*Kelembapan* : ${anu.result.kelembapan}`
+					hasil = `*O lugar* : ${anu.result.tempat}\n*Clima* : ${anu.result.cuaca}\n*Vento* : ${anu.result.angin}\n*Temperatura* : ${anu.result.suhu}\n*Umidade* : ${anu.result.kelembapan}`
 					itsmeiky.sendMessage(from, hasil, text, {quoted: iky})
 					await limitAdd(sender)
 					break
@@ -2225,7 +2229,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					enmedia = JSON.parse(JSON.stringify(iky).replace('quotedM','m')).message.extendedTextMessage.contextInfo
 					media = await itsmeiky.downloadAndSaveMediaMessage(enmedia)
 					await itsmeiky.updateProfilePicture(botNumber, media)
-					reply('Makasih profil barunya😗')
+					reply('Obrigado pelo novo perfil😗')
 					break 
 		case 'setppbott':
 				if (!isAdmin) return reply('*Only Admin bot*')
@@ -2234,7 +2238,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					enmedia = JSON.parse(JSON.stringify(iky).replace('quotedM','m')).message.extendedTextMessage.contextInfo
 					media = await itsmeiky.downloadAndSaveMediaMessage(enmedia)
 					await itsmeiky.updateProfilePicture(botNumber, media)
-					reply('Makasih profil barunya😗')
+					reply('Obrigado pelo novo perfil😗')
 					break 
 		case 'brainly':
 					 // Fix Bug By ItsmeikyXSec404				
@@ -2245,7 +2249,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					brainly(`${brien}`).then(res => {
 					teks = '❉───────────❉\n'
 					for (let Y of res.data) {
-						teks += `\n*「 _BRAINLY_ 」*\n\n*➸ Pertanyaan:* ${Y.pertanyaan}\n\n*➸ Jawaban:* ${Y.jawaban[0].text}\n❉───────────❉\n`
+						teks += `\n*「 _BRAINLY_ 」*\n\n*➸ Pergunta:* ${Y.pertanyaan}\n\n*➸ Resposta:* ${Y.jawaban[0].text}\n❉───────────❉\n`
 					}
 					itsmeiky.sendMessage(from, teks, text, {quoted: iky, detectLinks: false})
 					console.log(res)
@@ -2266,9 +2270,9 @@ itsmeiky.on('group-participants-update', async (anu) => {
 						reply('')
 					} else {
 						for (let _ of anu) {
-							sendMess(_.jid, `*「 BROADCAST GROUP 」*\n\nDari Grup : ${groupName}\nPengirim : wa.me/${(sender.split('@')[0])}\nPesan : ${body.slice(6)}`)
+							sendMess(_.jid, `*「 GRUPO DE TRANSMISSÃO 」*\n\nDari Grup : ${groupName}\nPengirim : wa.me/${(sender.split('@')[0])}\nPesan : ${body.slice(6)}`)
 						}
-						reply('Sukses broadcast group')
+						reply('Grupo de transmissão bem-sucedido')
 					}
 					break 
 		case 'pinterest':
@@ -2323,6 +2327,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					await limitAdd(sender) 
 					break
            case 'imageislamic':
+           case 'fotoislamic':
 			         // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
@@ -2332,6 +2337,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					await limitAdd(sender) 
 					break
            case 'imagecyberspace':
+           case 'fotocyberspace':
 			         // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
@@ -2341,6 +2347,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					await limitAdd(sender) 
 					break
            case 'imagegame':
+           case 'fotogame':
 			         // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
@@ -2359,6 +2366,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					await limitAdd(sender) 
 					break
            case 'imagemountain':
+           case 'fotomontanha':
 			         // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
@@ -2534,7 +2542,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 			         // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-					if (args.length < 1) return reply('Urlnya mana gan?')
+					if (args.length < 1) return reply('Cadê o url mano?')
 					if(!isUrl(args[0]) && !args[0].includes('youtu')) return reply(mess.error.Iv)
 					anu = await fetchJson(`https://api.shizukaa.xyz/api/ytmp3?apikey=itsmeiky633&url=${args[0]}&apiKey=${BarBarApi}`, {method: 'get'})
 					if (anu.error) return reply(anu.error)
@@ -2566,7 +2574,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 				if (isBanned) return reply('Desculpe você foi pego!')
-					if (args.length < 1) return reply('kasih teks lah^_^!!!')
+					if (args.length < 1) return reply('Por favor, envie uma mensagem^_^!!!')
 					anu = await fetchJson(`https://api.zeks.xyz/api/hilihmaker?text=${body.slice(7)}&apikey=apivinz`, {method: 'get'})
 					reply(anu.result)
 					await limitAdd(sender)
@@ -2783,7 +2791,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					ige = body.slice(10)
 					anu = await fetchJson(`https://tobz-api.herokuapp.com/api/film2?q=${ige}&apikey=BotWeA`)
 					buffer7 = await getBuffer(anu.result.thumbnail)
-					capt = `➸ Judul : ${anu.result.judul}\n*➸ Bahasa :* ${anu.result.bahasa}\n*➸ Negara :* ${anu.result.negara}\n*➸ Aktor :* ${anu.result.aktor}\n*➸ Boxoffice :* ${anu.result.boxoffice}\n*➸ Dirilis :* ${anu.result.dirilis}\n*➸ Durasi :* ${anu.result.durasi}\n*➸ Katagori :* ${anu.result.kategori}\n*➸ Metascore :* ${anu.result.metascore}\n*➸ Vote :* ${anu.result.voting_imdb}\n*➸ Negara :* ${anu.result.negara}\n*➸ Sinopsis :* ${anu.result.sinopsis}\n*➸ Penghargaan :* ${anu.result.penghargaan}`
+					capt = `➸ Título : ${anu.result.judul}\n*➸ Língua :* ${anu.result.bahasa}\n*➸ País :* ${anu.result.negara}\n*➸ Ator :* ${anu.result.aktor}\n*➸ Bilheteria :* ${anu.result.boxoffice}\n*➸ Liberado :* ${anu.result.dirilis}\n*➸ Duração :* ${anu.result.durasi}\n*➸ Categoria :* ${anu.result.kategori}\n*➸ Metascore :* ${anu.result.metascore}\n*➸ Vote :* ${anu.result.voting_imdb}\n*➸ Negara :* ${anu.result.negara}\n*➸ Sinopsis :* ${anu.result.sinopsis}\n*➸ Penghargaan :* ${anu.result.penghargaan}`
 					itsmeiky.sendMessage(from, buffer7, image, {quoted: iky, caption: capt})
 					await limitAdd(sender)
 					break
@@ -2866,13 +2874,13 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					itsmeiky.updatePresence(from, Presence.composing) 
-					teks = `\`\`\`Ini adalah list group SHIZUKA BOT :\n\n\`\`\``
+					teks = `\`\`\`Esta é uma lista de grupos GG BOT :\n\n\`\`\``
 					no = 0
 					for (let hehehe of groupId) {
 						no += 1
 						teks += `\`\`\`[${no.toString()}]\`\`\` @${hehehe.split('@')[0]}\n`
 					}
-					teks += `\n\`\`\`Total grup : ${groupId.length}\`\`\``
+					teks += `\n\`\`\`Grupo total : ${groupId.length}\`\`\``
 					itsmeiky.sendMessage(from, teks.trim(), extendedText, {quoted: iky})
 					break
 		//daftar 
@@ -2992,7 +3000,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					itsmeiky.sendMessage(from, 'Pertanyaan : *'+sange+'*\n\nJawaban : '+ nge+'%', text, { quoted: iky })
 					await limitAdd(sender)
 					break
-                case 'gaycek':
+                case 'gay':
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
@@ -3000,10 +3008,10 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					gayy = body.slice(1)
 					const gay =['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','41','42','43','44','45','46','47','48','49','50','51','52','53','54','55','56','57','58','59','60','61','62','63','64','65','66','67','68','69','70','71','72','73','74','75','76','77','78','79','80','81','82','83','84','85','86','87','88','89','90','91','92','93','94','95','96','97','98','99','100']
 					const yag = gay[Math.floor(Math.random() * gay.length)]
-					itsmeiky.sendMessage(from, 'Pertanyaan : *'+gayy+'*\n\nJawaban : '+ yag+'%', text, { quoted: iky })
+					itsmeiky.sendMessage(from, 'Pergunta : *'+gayy+'*\n\nResponda : '+ yag+'%', text, { quoted: iky })
 					await limitAdd(sender)
 					break
-                case 'lesbicek':
+                case 'Lesbicek':
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
@@ -3104,6 +3112,8 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					await limitAdd(sender)
 					break
 		case 'kodenegara':
+		case 'cdpaís':
+		case 'cdpais':
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
@@ -3131,7 +3141,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					const userXp = getLevelingXp(sender)
 					if (userLevel === undefined && userXp === undefined) return reply(ind.lvlnul())
 					const requiredXp = 5000 * (Math.pow(2, userLevel) - 1)
-					resul = `◪ *LEVEL*\n  ├─ ❏ *Name* : ${pushname}\n  ├─ ❏ *Nomor* : ${sender.split("@")[0]}\n  ├─ ❏ *User XP* : ${userXp}/${requiredXp}\n  └─ ❏ *User Level* : ${userLevel}\n`
+					resul = `◪ *NÍVEL*\n  ├─ ❏ *Nome* : ${pushname}\n  ├─ ❏ *Número* : ${sender.split("@")[0]}\n  ├─ ❏ *XP Do Usuário* : ${userXp}/${requiredXp}\n  └─ ❏ *Nivel Do Usuário* : ${userLevel}\n`
 					itsmeiky.sendMessage(from, resul, text, { quoted: iky})
 					.catch(async (err) => {
 					console.error(err)
@@ -3151,7 +3161,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 		case 'info':
 					me = itsmeiky.user
 					uptime = process.uptime()
-					teks = `*INFO OWNER*\n*Owner bot* : Muhammad Ridwan Reynaldy\n*No Owner* : wa.me/553398091185\n*Ig owner* : www.instagram.com/anemio999\n━━━━━━━━━━━━━━━━━━━━\n*INFO BOT*\n*Nama bot* : ${me.name}\n*Nomor bot* : @${me.jid.split('@')[0]}\n*Prefix* : ${prefix}\n*Total block contact* : ${blocked.length}\n*The bot is active on* : ${kyun(uptime)}\n*Fans page FB* : https://www.facebook.com/ainneboot\n*Ketik* : ${prefix}lpr _Untuk melaporkan admin bot melalui bot_\n*Ketik* : ${prefix}owner untuk menghubungi admin bot kami.`
+					teks = `*INFORMAÇÕES DO DONO*\n*Dono Do Bot* : Muhammad Ridwan Reynaldy\n*Número do Dono* : wa.me/553398091185\n*Ig do dono* : www.instagram.com/tiago.lve\n━━━━━━━━━━━━━━━━━━━━\n*INFORMAÇÕES DO BOT*\n*Nome Do Bot* : ${me.name}\n*Número Do Bot* : @${me.jid.split('@')[0]}\n*Prefix* : ${prefix}\n*Total De Número Bloqueado* : ${blocked.length}\n*O bot está ativo em* : ${kyun(uptime)}\n*Fans page FB* : https://www.facebook.com/\n*Modelo* : ${prefix}lpr _Para relatar o administrador do bot via bot_\n*Modelo* : ${prefix}dono entre em contato com nosso administrador de bot.`
 					buffer = await getBuffer(`https://i.ibb.co/4jknX6w/pp.jpg`)
 					itsmeiky.sendMessage(from, buffer, image, {caption: teks, contextInfo:{mentionedJid: [me.jid]}})
 					break
@@ -3164,7 +3174,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					break
 		case 'lpr':
 					const bug = body.slice(5)
-					if (pesan.length > 300) return itsmeiky.sendMessage(from, 'Maaf Teks Terlalu Panjang, Maksimal 300 Teks', msgType.text, {quoted: iky})
+					if (pesan.length > 300) return itsmeiky.sendMessage(from, 'Desculpe, o texto é muito longo, máximo de 300 textos', msgType.text, {quoted: iky})
 					var nomor = iky.participant
 					teks1 = `*[LAPORAN]*\nNomor : @${nomor.split("@s.whatsapp.net")[0]}\nPesan : ${bug}`
 					var options = {
@@ -3186,7 +3196,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					itsmeiky.sendMessage('553398091185@s.whatsapp.net', options, text, {quoted: iky})
 					itsmeiky.sendMessage('6281315113882@s.whatsapp.net', options, text, {quoted: iky})
 					itsmeiky.sendMessage('6282148618789@s.whatsapp.net', options, text, {quoted: iky})
-					reply('REQUEST ANDA TELAH SAMPAI KE OWNER Shizuka BOT, Requests palsu atau main² tidak akan ditanggapi.')
+					reply('SUA SOLICITAÇÃO FOI PARA O PROPRIETÁRIO GG BOT, solicitações falsas ou rede elétrica não serão respondidas.')
 					break
 		case 'blocklist': 
 					teks = '*This is list of blocked number* :\n'
@@ -3352,7 +3362,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
 				if (isBanned) return reply('Desculpe você foi pego!')
-					if (args.length < 1) return reply('Urlnya mana kak?')
+					if (args.length < 1) return reply('Cadê o url mana?')
 					teks = body.slice(7)
 					reply(ind.wait())
 					anu = await fetchJson(`https://mnazria.herokuapp.com/api/screenshotweb?url=${teks}`)
@@ -3851,7 +3861,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					data = await fetchJson(`https://docs-jojo.herokuapp.com/api/neonime_lastest`, {method: 'get'})
 					teks = '################\n'
 					for (let i of data.result) {
-						teks += `*Title* : ${i.judul}\n*link* : ${i.link}\n*rilis* : ${i.rilis}\n###############\n`
+						teks += `*Titulo* : ${i.judul}\n*link* : ${i.link}\n*lançamento* : ${i.rilis}\n###############\n`
 					}
 					reply(teks.trim())
 					await limitAdd(sender)
@@ -3949,7 +3959,6 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (!isPremium) return reply('Desculpe, você não é um usuário premium!')
 				if (isBanned) return reply('Desculpe você foi pego!')
 				if (args.length < 1) return itsmeiky.sendMessage(from, 'Diperlukan kode bahasa kak!!', text, {quoted: iky})
 					const gtts = require('./lib/gtts')(args[0])
@@ -3958,7 +3967,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					ranm = getRandom('.mp3')
 					rano = getRandom('.ogg')
 					dtt.length > 300
-					? reply('Textnya kebanyakan setan!! 😤')
+					? reply('O texto é principalmente satânico!! 😤')
 					: gtts.save(ranm, dtt, function() {
 						exec(`ffmpeg -i ${ranm} -ar 48000 -vn -c:a libopus ${rano}`, (err) => {
 							fs.unlinkSync(ranm)
@@ -3974,35 +3983,35 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					if (args.length < 1) return
 					if (!isOwner) return reply(ind.ownerb())
 					prefix = args[0]
-					reply(`*Prefix berhasil di ubah menjadi* : ${prefix}`)
+					reply(`*O prefixo foi alterado com sucesso para* : ${prefix}`)
 					break 
 		case 'setlimit':
 		case 'addlimit':
 					if (args.length < 1) return
 					if (!isOwner) return reply(ind.ownerb())
 					limitawal = args[0]
-					reply(`*Limit berhasil di ubah menjadi* : ${limitawal}`)
+					reply(`*O limite foi alterado com sucesso para* : ${limitawal}`)
 					break 
 		case 'setlimitt':
 		case 'addlimitt':
 					if (args.length < 1) return
-				if (!isAdmin) return reply('*Only Admin bot*')
+				if (!isAdmin) return reply('*Apenas Admin bot*')
 					limitawal = args[0]
 					reply(`*Limit berhasil di ubah menjadi* : ${limitawal}`)
 					break 
 		case 'setmemlimit':
 					if (args.length < 1) return
 					if (!isOwner) return reply(ind.ownerb())
-					if (isNaN(args[0])) return reply('Limit harus angka')
+					if (isNaN(args[0])) return reply('O limite deve ser um número')
 					memberlimit = args[0]
-					reply(`Change Member limit To ${memberlimit} SUCCESS!`)
+					reply(`Alterar limite de membros para ${memberlimit} SUCESSO!`)
 					break 
 		case 'setmemlimitt':
 					if (args.length < 1) return
-				if (!isAdmin) return reply('*Only Admin bot*')
-					if (isNaN(args[0])) return reply('Limit harus angka')
+				if (!isAdmin) return reply('*Apenas Admin bot*')
+					if (isNaN(args[0])) return reply('O limite deve ser um número')
 					memberlimit = args[0]
-					reply(`Change Member limit To ${memberlimit} SUCCESS!`)
+					reply(`Alterar limite de membros para ${memberlimit} SUCESSO!`)
 					break 
 		case 'tiktokstalk':
 				 // Fix Bug By ItsmeikyXSec404				
@@ -4010,7 +4019,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
 				if (isBanned) return reply('Desculpe você foi pego!')
 				try {
-						if (args.length < 1) return itsmeiky.sendMessage(from, '*Username mana kak?', text, {quoted: iky})
+						if (args.length < 1) return itsmeiky.sendMessage(from, '*Nome de usuário mana kak?', text, {quoted: iky})
 						let { user, stats } = await tiktod.getUserProfileInfo(args[0])
 						reply(ind.wait())
 						teks = `*ID* : ${user.id}\n*Username* : ${user.uniqueId}\n*Nickname* : ${user.nickname}\n*Followers* : ${stats.followerCount}\n*Followings* : ${stats.followingCount}\n*Posts* : ${stats.videoCount}\n*Luv* : ${stats.heart}\n`
@@ -4018,7 +4027,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 						itsmeiky.sendMessage(from, buffer, image, {quoted: iky, caption: teks})
 					} catch (e) {
 						console.log(`Error :`, color(e,'red'))
-						reply('*(ERROR)* *Kemungkinan username tidak valid*')
+						reply('*(ERROR)* *Possível nome de usuário inválido*')
 					}
 					await limitAdd(sender)
 					break
@@ -4039,27 +4048,27 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					itsmeiky.sendMessage(from, 'Kuylah, dapat duit aku..',MessageType.text, { quoted: iky} )
 					break
 		case 'bot':
-					itsmeiky.sendMessage(from, 'Iya kak? \nJangan lupa daftar iya kak ^_^"\nJika sudah silahkan berarti sudah terdaftar kak ^_^"',MessageType.text, { quoted: iky} )
+					itsmeiky.sendMessage(from, 'como? \nNão esqueça de se cadastrar, mana ^_^"\nSe você tiver, significa que você registrou irmã ^_^"',MessageType.text, { quoted: iky} )
 					break
 		case 'hargaprem':
 		case 'hargapremium':
 		case 'ganharpremium':
-					itsmeiky.sendMessage(from, 'Level 100 = Free 3 day (premium)\n10k = 7day (premium)\n25k = bulan (premium)',MessageType.text, { quoted: iky} )
+					itsmeiky.sendMessage(from, 'Nível 100 = Grátis 3 dias (premium)\n5$ = 7 dias (premium)\n10$ = mês (premium)',MessageType.text, { quoted: iky} )
 					break
 		case 'buypremium':
-					itsmeiky.sendMessage(from, 'Ingin membeli premium?\nHarap hubungi kami : wa.me/553398091185',MessageType.text, { quoted: iky} )
+					itsmeiky.sendMessage(from, 'Quer comprar premium?\nPor favor, entre em contato conosco : wa.me/553398091185',MessageType.text, { quoted: iky} )
 					break
 		case 'buypremunlimited':
 					if (!isPremium) return reply('Desculpe, você não é um usuário premium!')
-					itsmeiky.sendMessage(from, 'Selamat kamu sudah berlangganan selamanya 🎉',MessageType.text, { quoted: iky} )
+					itsmeiky.sendMessage(from, 'Parabéns pela sua assinatura para sempre 🎉',MessageType.text, { quoted: iky} )
 					break
 		case 'buyprem30day':
 					if (!isPremium) return reply('Desculpe, você não é um usuário premium!')
-					itsmeiky.sendMessage(from, 'Selamat kamu sudah berlangganan 30 hari',MessageType.text, { quoted: iky} )
+					itsmeiky.sendMessage(from, 'Parabéns, você se inscreveu por 30 dias',MessageType.text, { quoted: iky} )
 					break
 		case 'buyprem7day':
 					if (!isPremium) return reply('Desculpe, você não é um usuário premium!')
-					itsmeiky.sendMessage(from, 'Selamat kamu sudah berlangganan 7 hari',MessageType.text, { quoted: iky} )
+					itsmeiky.sendMessage(from, 'Parabéns, você se inscreveu por 7 dias',MessageType.text, { quoted: iky} )
 					break
 		case 'test':
 					itsmeiky.sendMessage(from, 'Active',MessageType.text, { quoted: iky} )
@@ -4093,7 +4102,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
   					if (isLimit(sender)) return reply(ind.limitend(pusname))
   					itsmeiky.updatePresence(from, Presence.composing) 
   					options = {
-  					text: `「 *SELF WHATSAPP* 」\n\n_Request by_ : *@${sender.split("@s.whatsapp.net")[0]}\n\nYour link WhatsApp : *https://wa.me/${sender.split("@s.whatsapp.net")[0]}*\n*Or ( / )*\n*https://api.whatsapp.com/send?phone=${sender.split("@")[0]}*`,
+  					text: `「 *WHATSAPP* 」\n\n_Solicitado por_ : *@${sender.split("@s.whatsapp.net")[0]}\n\nYour link WhatsApp : *https://wa.me/${sender.split("@s.whatsapp.net")[0]}*\n*Or ( / )*\n*https://api.whatsapp.com/send?phone=${sender.split("@")[0]}*`,
   					contextInfo: { mentionedJid: [sender] }
   					}
   					itsmeiky.sendMessage(from, options, text, { quoted: iky } )
@@ -4128,15 +4137,15 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				 itsmeiky.updatePresence(from, Presence.composing) 
 				 itsmeiky.chatRead (from)
 					if (!isGroup) return reply(ind.groupo())
-				if (!isAdmin) return reply('*Only Admin bot*')
+				if (!isAdmin) return reply('*Apenas Admin bot*')
 					itsmeiky.blockUser (`${body.slice(8)}@c.us`, "add")
-					itsmeiky.sendMessage(from, `*Perintah Diterima, Memblokir* ${body.slice(7)}@c.us`, text)
+					itsmeiky.sendMessage(from, `*Pedido recebido, bloqueando* ${body.slice(7)}@c.us`, text)
 					break
 		case 'unblockk':
 					if (!isGroup) return reply(ind.groupo())
-				if (!isAdmin) return reply('*Only Admin bot*')
+				if (!isAdmin) return reply('*Apenas Admin bot*')
 				    itsmeiky.blockUser (`${body.slice(10)}@c.us`, "remove")
-					itsmeiky.sendMessage(from, `*Perintah Diterima, Membuka Blockir* ${body.slice(9)}@c.us`, text)
+					itsmeiky.sendMessage(from, `*Pedido recebido, desbloquear* ${body.slice(9)}@c.us`, text)
 					break
 		case 'block':
 				 itsmeiky.updatePresence(from, Presence.composing) 
@@ -4144,13 +4153,13 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					if (!isGroup) return reply(ind.groupo())
 					if (!isOwner) return reply(ind.ownerb())
 					itsmeiky.blockUser (`${body.slice(7)}@c.us`, "add")
-					itsmeiky.sendMessage(from, `*Perintah Diterima, Memblokir* ${body.slice(7)}@c.us`, text)
+					itsmeiky.sendMessage(from, `*Pedido recebido, bloqueando* ${body.slice(7)}@c.us`, text)
 					break
 		case 'unblock':
 					if (!isGroup) return reply(ind.groupo())
 					if (!isOwner) return reply(ind.ownerb())
 				    itsmeiky.blockUser (`${body.slice(9)}@c.us`, "remove")
-					itsmeiky.sendMessage(from, `*Perintah Diterima, Membuka Blockir* ${body.slice(9)}@c.us`, text)
+					itsmeiky.sendMessage(from, `*Pedido recebido, desbloquear* ${body.slice(9)}@c.us`, text)
 					break
 		case 'leave':
 					 // Fix Bug By ItsmeikyXSec404				
@@ -4162,7 +4171,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					}, 2000)
 					setTimeout( () => {
 					itsmeiky.updatePresence(from, Presence.composing) 
-					itsmeiky.sendMessage(from, 'Sampai jumpa 👋', text) // ur cods
+					itsmeiky.sendMessage(from, 'Até encontrar 👋', text) // ur cods
 					}, 0)
 					break
 		case 'bc': 
@@ -4251,7 +4260,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					if (!isGroupAdmins) return reply(ind.admin())
 					if (!isBotGroupAdmins) return reply(ind.badmin())
 					itsmeiky.groupUpdateSubject(from, `${body.slice(9)}`)
-					itsmeiky.sendMessage(from, 'Succes, Ganti Nama Grup', text, {quoted: iky})
+					itsmeiky.sendMessage(from, 'Sucesso, alterar o nome do grupo', text, {quoted: iky})
 					break*/
                 case 'setdesc':
                 cade 'mudardesc':
@@ -4259,7 +4268,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					if (!isGroupAdmins) return reply(ind.admin())
 					if (!isBotGroupAdmins) return reply(ind.badmin())
 					itsmeiky.groupUpdateDescription(from, `${body.slice(9)}`)
-					itsmeiky.sendMessage(from, 'Succes, Ganti Deskripsi Grup', text, {quoted: iky})
+					itsmeiky.sendMessage(from, 'Sucesso, descrição do grupo de mudança', text, {quoted: iky})
 					break
            case 'demote':
            case 'rebaixar':
@@ -4271,13 +4280,13 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					if (mentioned.length > 1) {
 						teks = ''
 						for (let _ of mentioned) {
-							teks += `*Perintah diterima, menurunkan jadi admin group* :\n`
+							teks += `*Comando aceito, reduzir para membro comum do grupo* :\n`
 							teks += `@_.split('@')[0]`
 						}
 						mentions(teks, mentioned, true)
 						itsmeiky.groupDemoteAdmin(from, mentioned)
 					} else {
-						mentions(`*Perintah diterima, menurunkan* @${mentioned[0].split('@')[0]} *jadi admin group*`, mentioned, true)
+						mentions(`*Pedidos aceitos, Rebaixado* @${mentioned[0].split('@')[0]} *seja um membro comum de grupo*`, mentioned, true)
 						itsmeiky.groupDemoteAdmin(from, mentioned)
 					}
 					break
@@ -4334,7 +4343,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 		case 'toimg':
 				 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
-				if (!isQuotedSticker) return reply('*Reply/Tag sticker!*')
+				if (!isQuotedSticker) return reply('*Adesivo Responder / Marcar!*')
 					reply(ind.wait())
 					encmedia = JSON.parse(JSON.stringify(iky).replace('quotedM','m')).message.extendedTextMessage.contextInfo
 					media = await itsmeiky.downloadAndSaveMediaMessage(encmedia)
@@ -4349,7 +4358,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					await limitAdd(sender)
 					break
                  case 'simi':
-					if (args.length < 1) return reply('Textnya mana kak?')
+					if (args.length < 1) return reply('Onde está o texto, irmão??')
 					teks = body.slice(5)
 					anu = await simih(teks) //fetchJson(`https://mhankbarbars.herokuapp.com/api/samisami?text=${teks}`, {method: 'get'})
 					//if (anu.error) return reply('Simi ga tau kak')
@@ -4375,16 +4384,16 @@ itsmeiky.on('group-participants-update', async (anu) => {
 		case 'nsfw':
 					if (!isGroup) return reply(ind.groupo())
 					if (!isGroupAdmins) return reply(ind.admin())
-					if (args.length < 1) return reply('Mengaktifkan tekan 1, Menonaktif tekan ')
+					if (args.length < 1) return reply('Ative pressione 1, Desative pressione ')
 					if (Number(args[0]) === 1) {
-						if (isNsfw) return reply('*Fitur nsfw sudah aktif sebelum nya*')
+						if (isNsfw) return reply('*O recurso NSFW já estava ativo antes*')
 						nsfw.push(from)
 						fs.writeFileSync('./database/bot/nsfw.json', JSON.stringify(nsfw))
-						reply('Sukes mengaktifkan mode nsfw di group ini ✔️')
+						reply('Ativando o modo nsfw com sucesso neste grupo ✔️')
 					} else if (Number(args[0]) === 0) {
 						nsfw.splice(from, 1)
 						fs.writeFileSync('./database/bot/nsfw.json', JSON.stringify(nsfw))
-						reply('Sukes menonaktifkan mode nsfw di group ini ✔️')
+						reply('Desativando o modo nsfw com sucesso neste grupo ✔️')
 					} else {
 						reply(ind.satukos())
 					}
@@ -4392,9 +4401,9 @@ itsmeiky.on('group-participants-update', async (anu) => {
 		case 'leveling':
 					if (!isGroup) return reply(ind.groupo())
 					if (!isGroupAdmins) return reply(ind.admin())
-					if (args.length < 1) return reply('Mengaktifkan tekan 1, Menonaktif tekan 0')
+					if (args.length < 1) return reply('Ative pressione 1, Desative pressione 0')
 					if (args[0] === '1') {
-					if (isLevelingOn) return reply('*Fitur level sudah aktif sebelum nya*')
+					if (isLevelingOn) return reply('*O recurso de nível já estava ativo antes*')
 					_leveling.push(from)
 					fs.writeFileSync('./database/group/leveling.json', JSON.stringify(_leveling))
 					reply(ind.lvlon())
@@ -4481,7 +4490,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 		case 'clone':
 					if (!isGroup) return reply(ind.groupo())
 					if (!isOwner) return reply(ind.ownerg()) 
-					if (args.length < 1) return reply(' *TAG YANG MAU DI CLONE!!!* ')
+					if (args.length < 1) return reply(' *Marca A Pessoa Que Você Deseja Clonar!!!* ')
 					if (iky.message.extendedTextMessage === undefined || iky.message.extendedTextMessage === null) return reply('❬ SUCCSESS ❭')
 					mentioned = iky.message.extendedTextMessage.contextInfo.mentionedJid[0]
 					let { jid, id, notify } = groupMembers.find(x => x.jid === mentioned)
@@ -4489,7 +4498,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 						pp = await itsmeiky.getProfilePicture(id)
 						buffer = await getBuffer(pp)
 						itsmeiky.updateProfilePicture(botNumber, buffer)
-						mentions(`Foto profile Berhasil di perbarui menggunakan foto profile @${id.split('@')[0]}`, [jid], true)
+						mentions(`Foto do perfil atualizada com sucesso usando a foto do perfil @${id.split('@')[0]}`, [jid], true)
 					} catch (e) {
 						reply(ind.stikga())
 					}
@@ -4514,7 +4523,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				default:
 			if (body.startsWith(`${prefix}${command}`)) {
 
-                  reply(`Maaf *${pushname}*, Command *${prefix}${command}* Tidak Terdaftar Di Dalam *${prefix}menu*!`)
+                  reply(`Desculpe *${pushname}*, Comando *${prefix}${command}* Não listado dentro *${prefix}menu*!`)
 
                   }
 			if (isGroup && !isCmd && isSimi && budy != undefined) {
