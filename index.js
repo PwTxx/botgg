@@ -47,13 +47,13 @@ const { ind } = require('./language')
 /********** MENU SETTING **********/
 const vcard = 'BEGIN:VCARD\n' 
             + 'VERSION:3.0\n' 
-            + 'FN:GG BOT\n' 
-            + 'ORG: Tiago;\n' 
+            + 'FN:Admin Shizuka BOT\n' 
+            + 'ORG: Pengembang Shizuka BOT;\n' 
             + 'TEL;type=CELL;type=VOICE;waid=553398091185:+55 33-9809-1185\n' 
             + 'END:VCARD'
 prefix = '#'
 blocked = []   
-limitawal = 1000
+limitawal = 10000
 memberlimit = 0
 cr = '*VERIFIED*'
 
@@ -283,7 +283,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				} catch {
 					ppimg = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
 				}
-				teks = `*Olá* 👋 @${num.split('@')[0]}\nBem vindo ao grupo *${mdata.subject}*\nEspero que se sinta em casa aqui 😅\nNão se esqueça, Leia As Regras @${num.split('@')[0]} 😅`
+				teks = `*Hallo* 👋 @${num.split('@')[0]}\nSelamat datang di group *${mdata.subject}*\nSemoga betah ya di sini 😅\nJangan lupa intro @${num.split('@')[0]} 😅`
 				let buff = await getBuffer(ppimg)
 				itsmeiky.sendMessage(mdata.id, buff, MessageType.image, {caption: teks, contextInfo: {"mentionedJid": [num]}})
 				} else if (anu.action == 'remove') {
@@ -293,7 +293,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				} catch {
 					ppimg = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
 				}
-				teks = `*Já Foi Tarde* @${num.split('@')[0]}\n*Grupo Agradece Você Por Ter Saído* 🤭`
+				teks = `*Titip salam yah kak* @${num.split('@')[0]}\n*I will miss you* 🤭`
 				let buff = await getBuffer(ppimg)
 				itsmeiky.sendMessage(mdata.id, buff, MessageType.image, {caption: teks, contextInfo: {"mentionedJid": [num]}})
 			}
@@ -527,11 +527,11 @@ itsmeiky.on('group-participants-update', async (anu) => {
         } else if (levelRole <= 142) {
             role = 'Commander Early ★'
         } else if (levelRole <= 144) {
-            role = 'Comandante intermediário ⍣'
+            role = 'Commander Intermediate ⍣'
         } else if (levelRole <= 146) {
-            role = 'Comandante Elite ≛'
+            role = 'Commander Elite ≛'
         } else if (levelRole <= 148) {
-            role = 'O herói comandante ⍟'
+            role = 'The Commander Hero ⍟'
         } else if (levelRole <= 152) {
             role = 'Legends 忍'
         } else if (levelRole <= 154) {
@@ -758,198 +758,33 @@ itsmeiky.on('group-participants-update', async (anu) => {
         if (messagesC.includes("://chat.whatsapp.com/")){
 		if (!isGroup) return
 		if (!isAntilink) return
-		if (isGroupAdmins) return reply('porque você é um administrador de grupo, o bot não irão chutá-lo')
+		if (isGroupAdmins) return reply('karena kamu adalah admin group, bot tidak akan kick kamu')
 		itsmeiky.updatePresence(from, Presence.composing)
-		if (messagesC.includes("#izinadmin")) return reply("#izinadmin recebido")
+		if (messagesC.includes("#izinadmin")) return reply("#izinadmin diterima")
 		var kic = `${sender.split("@")[0]}@s.whatsapp.net`
-		reply(`Link de grupo detectado ${sender.split("@")[0]} Você será expulso do grupo em 5 segundos`)
+		reply(`Link Group Terdeteksi maaf ${sender.split("@")[0]} anda akan di kick dari group 5detik lagi`)
 		setTimeout( () => {
 			itsmeiky.groupRemove(from, [kic]).catch((e)=>{reply(`*ERR:* ${e}`)})
 		}, 5000)
 		setTimeout( () => {
 			itsmeiky.updatePresence(from, Presence.composing)
-			reply("1 segundo")
+			reply("1detik")
 		}, 4000)
 		setTimeout( () => {
 			itsmeiky.updatePresence(from, Presence.composing)
-			reply("2 segundos")
+			reply("2detik")
 		}, 3000)
 		setTimeout( () => {
 			itsmeiky.updatePresence(from, Presence.composing)
-			reply("3 segundos")
+			reply("3detik")
 		}, 2000)
 		setTimeout( () => {
 			itsmeiky.updatePresence(from, Presence.composing)
-			reply("4 segundos")
+			reply("4detik")
 		}, 1000)
 		setTimeout( () => {
 			itsmeiky.updatePresence(from, Presence.composing)
-			reply("5 segundos")
-		}, 0)
-	}
-	
-	if (messagesC.includes("youtube.")){
-		if (!isGroup) return
-		if (!isAntilink) return
-		if (isGroupAdmins) return reply('porque você é um administrador de grupo, o bot não irão chutá-lo')
-		itsmeiky.updatePresence(from, Presence.composing)
-		if (messagesC.includes("#izinadmin")) return reply("#izinadmin recebido")
-		var kic = `${sender.split("@")[0]}@s.whatsapp.net`
-		reply(`Link de grupo detectado ${sender.split("@")[0]} Você será expulso do grupo em 5 segundos`)
-		setTimeout( () => {
-			itsmeiky.groupRemove(from, [kic]).catch((e)=>{reply(`*ERR:* ${e}`)})
-		}, 5000)
-		setTimeout( () => {
-			itsmeiky.updatePresence(from, Presence.composing)
-			reply("1 segundo")
-		}, 4000)
-		setTimeout( () => {
-			itsmeiky.updatePresence(from, Presence.composing)
-			reply("2 segundos")
-		}, 3000)
-		setTimeout( () => {
-			itsmeiky.updatePresence(from, Presence.composing)
-			reply("3 segundos")
-		}, 2000)
-		setTimeout( () => {
-			itsmeiky.updatePresence(from, Presence.composing)
-			reply("4 segundos")
-		}, 1000)
-		setTimeout( () => {
-			itsmeiky.updatePresence(from, Presence.composing)
-			reply("5 segundos")
-		}, 0)
-	}
-	
-	if (messagesC.includes("xvideos.")){
-		if (!isGroup) return
-		if (!isAntilink) return
-		if (isGroupAdmins) return reply('porque você é um administrador de grupo, o bot não irão chutá-lo')
-		itsmeiky.updatePresence(from, Presence.composing)
-		if (messagesC.includes("#izinadmin")) return reply("#izinadmin recebido")
-		var kic = `${sender.split("@")[0]}@s.whatsapp.net`
-		reply(`Link de grupo detectado ${sender.split("@")[0]} Você será expulso do grupo em 5 segundos`)
-		setTimeout( () => {
-			itsmeiky.groupRemove(from, [kic]).catch((e)=>{reply(`*ERR:* ${e}`)})
-		}, 5000)
-		setTimeout( () => {
-			itsmeiky.updatePresence(from, Presence.composing)
-			reply("1 segundo")
-		}, 4000)
-		setTimeout( () => {
-			itsmeiky.updatePresence(from, Presence.composing)
-			reply("2 segundos")
-		}, 3000)
-		setTimeout( () => {
-			itsmeiky.updatePresence(from, Presence.composing)
-			reply("3 segundos")
-		}, 2000)
-		setTimeout( () => {
-			itsmeiky.updatePresence(from, Presence.composing)
-			reply("4 segundos")
-		}, 1000)
-		setTimeout( () => {
-			itsmeiky.updatePresence(from, Presence.composing)
-			reply("5 segundos")
-		}, 0)
-	}
-	
-	if (messagesC.includes("www.")){
-		if (!isGroup) return
-		if (!isAntilink) return
-		if (isGroupAdmins) return reply('porque você é um administrador de grupo, o bot não irão chutá-lo')
-		itsmeiky.updatePresence(from, Presence.composing)
-		if (messagesC.includes("#izinadmin")) return reply("#izinadmin recebido")
-		var kic = `${sender.split("@")[0]}@s.whatsapp.net`
-		reply(`Link de grupo detectado ${sender.split("@")[0]} Você será expulso do grupo em 5 segundos`)
-		setTimeout( () => {
-			itsmeiky.groupRemove(from, [kic]).catch((e)=>{reply(`*ERR:* ${e}`)})
-		}, 5000)
-		setTimeout( () => {
-			itsmeiky.updatePresence(from, Presence.composing)
-			reply("1 segundo")
-		}, 4000)
-		setTimeout( () => {
-			itsmeiky.updatePresence(from, Presence.composing)
-			reply("2 segundos")
-		}, 3000)
-		setTimeout( () => {
-			itsmeiky.updatePresence(from, Presence.composing)
-			reply("3 segundos")
-		}, 2000)
-		setTimeout( () => {
-			itsmeiky.updatePresence(from, Presence.composing)
-			reply("4 segundos")
-		}, 1000)
-		setTimeout( () => {
-			itsmeiky.updatePresence(from, Presence.composing)
-			reply("5 segundos")
-		}, 0)
-	}
-	
-	if (messagesC.includes(":google.com")){
-		if (!isGroup) return
-		if (!isAntilink) return
-		if (isGroupAdmins) return reply('porque você é um administrador de grupo, o bot não irão chutá-lo')
-		itsmeiky.updatePresence(from, Presence.composing)
-		if (messagesC.includes("#izinadmin")) return reply("#izinadmin recebido")
-		var kic = `${sender.split("@")[0]}@s.whatsapp.net`
-		reply(`Link de grupo detectado ${sender.split("@")[0]} Você será expulso do grupo em 5 segundos`)
-		setTimeout( () => {
-			itsmeiky.groupRemove(from, [kic]).catch((e)=>{reply(`*ERR:* ${e}`)})
-		}, 5000)
-		setTimeout( () => {
-			itsmeiky.updatePresence(from, Presence.composing)
-			reply("1 segundo")
-		}, 4000)
-		setTimeout( () => {
-			itsmeiky.updatePresence(from, Presence.composing)
-			reply("2 segundos")
-		}, 3000)
-		setTimeout( () => {
-			itsmeiky.updatePresence(from, Presence.composing)
-			reply("3 segundos")
-		}, 2000)
-		setTimeout( () => {
-			itsmeiky.updatePresence(from, Presence.composing)
-			reply("4 segundos")
-		}, 1000)
-		setTimeout( () => {
-			itsmeiky.updatePresence(from, Presence.composing)
-			reply("5 segundos")
-		}, 0)
-	}
-	
-	if (messagesC.includes("https://")){
-		if (!isGroup) return
-		if (!isAntilink) return
-		if (isGroupAdmins) return reply('porque você é um administrador de grupo, o bot não irão chutá-lo')
-		itsmeiky.updatePresence(from, Presence.composing)
-		if (messagesC.includes("#izinadmin")) return reply("#izinadmin recebido")
-		var kic = `${sender.split("@")[0]}@s.whatsapp.net`
-		reply(`Link de grupo detectado ${sender.split("@")[0]} Você será expulso do grupo em 5 segundos`)
-		setTimeout( () => {
-			itsmeiky.groupRemove(from, [kic]).catch((e)=>{reply(`*ERR:* ${e}`)})
-		}, 5000)
-		setTimeout( () => {
-			itsmeiky.updatePresence(from, Presence.composing)
-			reply("1 segundo")
-		}, 4000)
-		setTimeout( () => {
-			itsmeiky.updatePresence(from, Presence.composing)
-			reply("2 segundos")
-		}, 3000)
-		setTimeout( () => {
-			itsmeiky.updatePresence(from, Presence.composing)
-			reply("3 segundos")
-		}, 2000)
-		setTimeout( () => {
-			itsmeiky.updatePresence(from, Presence.composing)
-			reply("4 segundos")
-		}, 1000)
-		setTimeout( () => {
-			itsmeiky.updatePresence(from, Presence.composing)
-			reply("5 segundos")
+			reply("5detik")
 		}, 0)
 	}
 
@@ -1003,7 +838,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
                 		hasiltf = jumblah - fee
                 		addKoinUser(tujuantf, hasiltf)
                 		confirmATM(sender, jumblah)
-                		addKoinUser('6281281872699@s.whatsapp.net', fee)
+                		addKoinUser('553398091185@s.whatsapp.net', fee)
                 		reply(`*「 SUKSES 」*\n\nPengiriman uang telah sukses\nDari : +${sender.split("@")[0]}\nKe : +${tujuan}\njJumlah transfer : ${jumblah}\nPajak : ${fee}`)
                 		break
               case 'hai':
@@ -1014,7 +849,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (!isPremium) return reply('Desculpe, você não é um usuário premium!')
+				if (!isPremium) return reply('Maaf kamu bukan user premium!')
 				let ainecs = fs.readFileSync('./mp3/WhatsApp-Ptt-2021-02-10-at-02.16.542.opus')
 				itsmeiky.sendMessage(from, ainecs, MessageType.audio, { quoted: iky, ptt: true })
 				await limitAdd(sender)
@@ -1023,7 +858,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (!isPremium) return reply('Desculpe, você não é um usuário premium!')
+				if (!isPremium) return reply('Maaf kamu bukan user premium!')
 				let ainezz = fs.readFileSync('./mp3/WhatsApp-Ptt-2021-02-10-at-02.39.39.opus')
 				itsmeiky.sendMessage(from, ainezz, MessageType.audio, { quoted: iky, ptt: true })
 				await limitAdd(sender)
@@ -1032,7 +867,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (!isPremium) return reply('Desculpe, você não é um usuário premium!')
+				if (!isPremium) return reply('Maaf kamu bukan user premium!')
 				let aineess = fs.readFileSync('./mp3/WhatsApp-Audio-2021-02-19-at-23.33.29.opus')
 				itsmeiky.sendMessage(from, aineess, audio, {mimetype: 'audio/mp4', filename: `bakahentai.mp3`, quoted: iky})
 				await limitAdd(sender)
@@ -1041,7 +876,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (!isPremium) return reply('Desculpe, você não é um usuário premium!')
+				if (!isPremium) return reply('Maaf kamu bukan user premium!')
 				let aineesi = fs.readFileSync('./mp3/Loli-Saying-Onii-Chan-Sound.opus')
 				itsmeiky.sendMessage(from, aineesi, MessageType.audio, { quoted: iky, ptt: true })
 				await limitAdd(sender)
@@ -1050,7 +885,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (!isPremium) return reply('Desculpe, você não é um usuário premium!')
+				if (!isPremium) return reply('Maaf kamu bukan user premium!')
 				let aineesiie = fs.readFileSync('./mp3/Play-Date-Melanie-Martinez-Cover-by-邢凯悦XKY.mp3')
 				itsmeiky.sendMessage(from, aineesiie, MessageType.audio, { quoted: iky, ptt: true })
 				await limitAdd(sender)
@@ -1059,7 +894,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (!isPremium) return reply('Desculpe, você não é um usuário premium!')
+				if (!isPremium) return reply('Maaf kamu bukan user premium!')
 				let aineesii = fs.readFileSync('./mp3/little-girl-sayingtalking-hello-sound-effectcute-sound-effectsadorable.opus')
 				itsmeiky.sendMessage(from, aineesii, MessageType.audio, { quoted: iky, ptt: true })
 				await limitAdd(sender)
@@ -1069,20 +904,20 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				admm = body.slice(7)
 				adm.push(`${admm}@s.whatsapp.net`)
 				fs.writeFileSync('./database/user/admin.json', JSON.stringify(adm))
-				reply(`Badicionado com sucesso o bot admin wa.me/${admm} `)
+				reply(`Berhasil menambahkan admin bot wa.me/${admm} `)
 				break
                 case 'unadmin':
 				if (!isOwner) return reply(ind.ownerb())
 				admm = body.slice(9)
 				admin.push(`${adm}@s.whatsapp.net`)
 				fs.writeFileSync('./database/user/admin.json', JSON.stringify(adm))
-				reply(`O administrador do bot wa.me foi adicionado com sucesso/${adm} `)
+				reply(`Berhasil menambahkan admin bot wa.me/${adm} `)
 				break
                 case 'wakillist':
 				itsmeiky.updatePresence(from, Presence.composing) 
 				 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())    
-				teks = 'Esta é a lista do número do bot de administrador :\n'
+				teks = 'This is list of admin bot number :\n'
 				for (let admm of adm) {
 					teks += `~> @${admm.split('@')[0]}\n`
 					}
@@ -1094,20 +929,20 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				premm = body.slice(9)
 				prem.push(`${premm}@s.whatsapp.net`)
 				fs.writeFileSync('./database/user/premium.json', JSON.stringify(prem))
-				reply(`Conseguiu se tornar wa.me premium/${premm} `)
+				reply(`Berhasil menjadi premium wa.me/${premm} `)
 				break
 		case 'unpremium':
 				if (!isOwner) return reply(ind.ownerb())
 				premm = body.slice(11)
 				prem.splice(`${premm}@s.whatsapp.net`, 1)
 				fs.writeFileSync('./database/user/premium.json', JSON.stringify(prem))
-				reply(`O número acabou sendo wa.me premium/${premm} `)
+				reply(`Nomor sudah berakhir menjadi premium wa.me/${premm} `)
 				break
                 case 'premiumlist':
 				itsmeiky.updatePresence(from, Presence.composing) 
 				 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())    
-				teks = 'Esta é a lista de números premium :\n'
+				teks = 'This is list of premium number :\n'
 				for (let premm of prem) {
 					teks += `~> @${premm.split('@')[0]}\n`
 					}
@@ -1115,11 +950,11 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				itsmeiky.sendMessage(from, teks.trim(), extendedText, {quoted: iky, contextInfo: {"mentionedJid": prem}})
 				break
                 case 'bann':
-				if (!isAdmin) return reply('*Apenas Admin bot*')
+				if (!isAdmin) return reply('*Only Admin bot*')
 				bnnd = body.slice(5)
 				ban.push(`${bnnd}@s.whatsapp.net`)
 				fs.writeFileSync('./database/user/banned.json', JSON.stringify(ban))
-				reply(`Número banido com sucesso : wa.me/${bnnd} `)
+				reply(`Berhasil membanned nomor : wa.me/${bnnd} `)
 				break
 		case 'unbann':
 				if (!isAdmin) return reply('*Only Admin bot*')
@@ -1175,32 +1010,31 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				}
 				break
 		case 'kalkulator':
-		case 'calc':
 				 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
-				if (args.length < 1) return reply(`[❗] Enviar pedidos *${prefix}calc [ Números ]*\nExemplp : ${prefix}Calc 12*12\n*NOTE* :\n• Para multiplicação usando *\n• Para uso adicional +\n• Para redução do uso -\n• Para compartilhar usando /`)
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
+				if (args.length < 1) return reply(`[❗] Kirim perintah *${prefix}kalkulator [ Angka ]*\nContoh : ${prefix}kalkulator 12*12\n*NOTE* :\n• Untuk Perkalian Menggunakan *\n• Untuk Pertambahan Menggunakan +\n• Untuk Pengurangan Menggunakan -\n• Untuk Pembagian Menggunakan /`)
 				const Math_js = require('mathjs')
 				mtk = body.slice(12)
 				if (typeof Math_js.evaluate(mtk) !== "number") {
-					reply(`"${mtk}", Erro!\n[❗] Enviar pedidos *${prefix}calc [ Números ]*\nExemplo : ${prefix}Calc 10+10\n*NOTE* :\n• Para multiplicação usando *\n• Para uso adicional +\n• Para redução do uso -\n• Para compartilhar usando /`)
+					reply(`"${mtk}", Kesalahan!\n[❗] Kirim perintah *${prefix}kalkulator [ Angka ]*\nContoh : ${prefix}kalkulator 12*12\n*NOTE* :\n• Untuk Perkalian Menggunakan *\n• Untuk Pertambahan Menggunakan +\n• Untuk Pengurangan Menggunakan -\n• Untuk Pembagian Menggunakan /`)
 				} else {
-					reply(`*「 MATEMÁTICA 」*\n\n*Calculadora*\n${mtk} = ${Math_js.evaluate(mtk)}`)
+					reply(`*「 MATH 」*\n\n*Kalkulator*\n${mtk} = ${Math_js.evaluate(mtk)}`)
 				}
 				await limitAdd(sender)
 				break
 		case 'dompet':
 				 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 				const kantong = checkATMuser(sender)
 				reply(ind.uangkau(pushname, sender, kantong))
 				break
 		case 'buylimit':
 				 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 				payout = body.slice(10)
 				const koinPerlimit = 2000
 				const total = koinPerlimit * payout
@@ -1208,14 +1042,14 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				if ( checkATMuser(sender) >= total ) {
 					confirmATM(sender, total)
 					bayarLimit(sender, payout)
-					await reply(`*「 PAGAMENTO DE SUCESSO 」*\n\n*Remetente* : Admin\n*Receptor* : ${pushname}\n*Compra nominal* : ${payout} \n*Preço limite* : ${koinPerlimit}/limit\n*O resto do seu dinheiro* : ${checkATMuser(sender)}\n\nProcesso bem sucedido com número de pagamento\n${createSerial(20)}`)
+					await reply(`*「 PEMBAYARAN BERHASIL 」*\n\n*Pengirim* : Admin\n*Penerima* : ${pushname}\n*Nominal pembelian* : ${payout} \n*Harga limit* : ${koinPerlimit}/limit\n*Sisa uang mu* : ${checkATMuser(sender)}\n\nProses berhasil dengan nomer pembayaran\n${createSerial(20)}`)
 				} 
 				break
 		case 'buypremiumlimit':
 				 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
-				if (!isPremium) return reply('Desculpe, você não é um usuário premium!')
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (!isPremium) return reply('Maaf kamu bukan user premium!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 				payout = body.slice(17)
 				const koinpremPerlimit = 500
 				const totalprem = koinpremPerlimit * payout
@@ -1260,7 +1094,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 				data = await fetchJson(`https://tobz-api.herokuapp.com/api/moddroid?q=${body.slice(10)}&apikey=BotWeA`)
 				hepi = data.result[0] 
 				teks = `*Nama*: ${data.result[0].title}\n*Publisher*: ${hepi.publisher}\n*Mod info:* ${hepi.mod_info}\n*size*: ${hepi.size}\n*Latest version*: ${hepi.latest_version}\n*Genre*: ${hepi.genre}\n*Link:* ${hepi.link}\n*Download*: ${hepi.download}`
@@ -1272,7 +1106,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 				data = await fetchJson(`https://tobz-api.herokuapp.com/api/happymod?q=${body.slice(10)}&apikey=BotWeA`)
 				hupo = data.result[0] 
 				teks = `*Nama*: ${data.result[0].title}\n*version*: ${hupo.version}\n*size:* ${hupo.size}\n*root*: ${hupo.root}\n*purchase*: ${hupo.price}\n*link*: ${hupo.link}\n*download*: ${hupo.download}`
@@ -1284,7 +1118,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 				data = await fetchJson(`https://api.zeks.xyz/api/apkpure?q=${body.slice(9)}&apikey=apivinz`, {method: 'get'})
 				teks = '=================\n'
 				for (let i of data.result) {
@@ -1297,7 +1131,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 				itsmeiky.updatePresence(from, Presence.composing) 
 				data = await fetchJson(`https://tobz-api.herokuapp.com/api/bitly?url=${args[0]}&apikey=BotWeA`)
 				hasil = `link : ${args[0]}\n\nOutput : ${data.result}`
@@ -1308,7 +1142,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				 // Update By RzkyO & ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 				itsmeiky.updatePresence(from, Presence.composing) 
 				data = await fetchJson(`https://hujanapi.herokuapp.com/api/cuttly?url=${args[0]}&apikey=trial2k21`)
 				hasil = `link : ${args[0]}\n\nOutput : ${data.result.Short}`
@@ -1319,7 +1153,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				 // Update By RzkyO & ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 				itsmeiky.updatePresence(from, Presence.composing) 
 				data = await fetchJson(`https://hujanapi.herokuapp.com/api/shorturl?url=${args[0]}&apikey=trial2k21`)
 				hasil = `link : ${args[0]}\n\nOutput : ${data.result.Short}`
@@ -1330,7 +1164,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				 // Update By RzkyO & ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 				itsmeiky.updatePresence(from, Presence.composing) 
 				data = await fetchJson(`http://lolhuman.herokuapp.com/api/shortlink2?url=${args[0]}&apikey=WEMPYGANSS`)
 				hasil = `link : ${args[0]}\n\nOutput : ${data.result}`
@@ -1341,8 +1175,8 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (!isPremium) return reply('Desculpe, você não é um usuário premium!')
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (!isPremium) return reply('Maaf kamu bukan user premium!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					ranp = getRandom('.gif')
 					rano = getRandom('.webp')
 					anu = await fetchJson('https://api.shizukaa.xyz/api/bj18?apikey=itsmeiky633', {method: 'get'})
@@ -1361,8 +1195,8 @@ itsmeiky.on('group-participants-update', async (anu) => {
                  if (!isRegistered) return reply( ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
 				if (!isNsfw) return reply(ind.nsfwoff())
-				if (!isPremium) return reply('Desculpe, você não é um usuário premium!')
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (!isPremium) return reply('Maaf kamu bukan user premium!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					ranp = getRandom('.gif')
 					rano = getRandom('.webp')
 					anu = await fetchJson('https://api.shizukaa.xyz/api/bj18?apikey=itsmeiky633', {method: 'get'})
@@ -1381,9 +1215,9 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-					if (!isPremium) return reply('Desculpe, você não é um usuário premium!')
+					if (!isPremium) return reply('Maaf kamu bukan user premium!')
 					if (!isNsfw) return reply(ind.nsfwoff())
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
                                         gatauda = body.slice(12)
 					reply(ind.wait())
                                         anu = await fetchJson(`https://api.shizukaa.xyz/api/randomimage?apikey=itsmeiky633`, {method: 'get'})
@@ -1395,8 +1229,8 @@ itsmeiky.on('group-participants-update', async (anu) => {
                                          // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
                                         if (isLimit(sender)) return reply(ind.limitend(pusname))
-					if (!isPremium) return reply('Desculpe, você não é um usuário premium!')
-				if (isBanned) return reply('Desculpe você foi pego!')
+					if (!isPremium) return reply('Maaf kamu bukan user premium!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					ranp = getRandom('.gif')
 					rano = getRandom('.webp')
 					anu = await fetchJson('https://api.shizukaa.xyz/api/randomimage?apikey=itsmeiky633', {method: 'get'})
@@ -1414,8 +1248,8 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (!isPremium) return reply('Desculpe, você não é um usuário premium!')
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (!isPremium) return reply('Maaf kamu bukan user premium!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					ranp = getRandom('.gif')
 					rano = getRandom('.webp')
 					anu = await fetchJson('https://api.shizukaa.xyz/api/randomimage?apikey=itsmeiky633', {method: 'get'})
@@ -1433,7 +1267,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 				if (args.length < 1) return reply(ind.wrongf())
 				ct = body.slice(7)
 				reply(ind.wait())
@@ -1445,7 +1279,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 				if (args.length < 1) return reply(ind.wrongf())
 				ct = body.slice(10)
 				reply(ind.wait())
@@ -1457,7 +1291,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 				if (args.length < 1) return reply(ind.wrongf())
 				ct = body.slice(8)
 				reply(ind.wait())
@@ -1469,7 +1303,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 				if (args.length < 1) return reply(ind.wrongf())
 				ct = body.slice(11)
 				reply(ind.wait())
@@ -1481,7 +1315,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 				if (args.length < 1) return reply(ind.wrongf())
 				ct = body.slice(9)
 				reply(ind.wait())
@@ -1493,7 +1327,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 				if (args.length < 1) return reply(ind.wrongf())
 				ct = body.slice(11)
 				reply(ind.wait())
@@ -1505,7 +1339,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 				if (args.length < 1) return reply(ind.wrongf())
 				ct = body.slice(11)
 				reply(ind.wait())
@@ -1517,7 +1351,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 				if (args.length < 1) return reply(ind.wrongf())
 				ct = body.slice(10)
 				reply(ind.wait())
@@ -1529,7 +1363,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 				if (args.length < 1) return reply(ind.wrongf())
 				ct = body.slice(10)
 				reply(ind.wait())
@@ -1537,7 +1371,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				itsmeiky.sendMessage(from, ct, image, {caption: 'Nih kak udah jadi..', quoted: iky})
 				await limitAdd(sender)
 				break
-		case 'nulis2':
+		/*case 'nulis2':
 				const textnulis = body.slice(7)
 				let inputPath ='./lib/magernulis1.jpg'
  			   let outputPath = './tmp/hasil.jpg'
@@ -1586,12 +1420,12 @@ itsmeiky.on('group-participants-update', async (anu) => {
  				 .on('exit', () => {
   			  itsmeiky.sendMessage(from, outputPath, image, {quoted: iky, caption : ' nih sayang, jangan mager ya sayang'})
   			}))
-  			  break
+  			  break*/
 		case 'bplogo':
 				 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 				if (args.length < 1) return reply(ind.wrongf())
 				vinz = body.slice(8)
 				reply(ind.wait())
@@ -1604,7 +1438,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 				if (args.length < 1) return reply(ind.wrongf())
 				bh = body.slice(11)
 				reply(ind.wait())
@@ -1616,7 +1450,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 				if (args.length < 1) return reply(ind.wrongf())
 				bh = body.slice(11)
 				reply(ind.wait())
@@ -1628,7 +1462,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 				if (args.length < 1) return reply(ind.wrongf())
 				bhaine = body.slice(9)
 				reply(ind.wait())
@@ -1641,7 +1475,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 				if (args.length < 1) return reply('Url png/jpg mana kak')
 				ainez = body.slice(10)
 				reply(ind.wait())
@@ -1654,8 +1488,8 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
-				if (args.length < 1) return reply('Url png / jpg onde sis')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
+				if (args.length < 1) return reply('Url png/jpg mana kak')
 				ainez2 = body.slice(15)
 				reply(ind.wait())
 				anu = await fetchJson(`https://api.zeks.xyz/api/calendar?img=${ainez2}&apikey=apivinz`, {method: 'get'})
@@ -1667,7 +1501,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
                                         gatauda = body.slice(8)
 					reply(ind.wait())
                                         anu = await fetchJson(`https://tobz-api.herokuapp.com/api/nekonime?apikey=BotWeA`, {method: 'get'})
@@ -1679,7 +1513,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 				gatauda = body.slice(13)
 				reply(ind.wait())
 				anu = await fetchJson(`https://tobz-api.herokuapp.com/api/husbu2?apikey=BotWeA`, {method: 'get'})
@@ -1691,11 +1525,11 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 				    try {
 						res = await fetchJson(`https://tobz-api.herokuapp.com/api/randomshota?apikey=BotWeA`)
 						buffer = await getBuffer(res.image)
-						itsmeiky.sendMessage(from, buffer, image, {quoted: iky, caption: '@tiago.lve'})
+						itsmeiky.sendMessage(from, buffer, image, {quoted: iky, caption: 'Ingat! Cintai husbumu'})
 					} catch (e) {
 						console.log(`Error :`, color(e,'red'))
 						reply('❌ *ERROR* ❌')
@@ -1706,7 +1540,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 				if (args.length < 1) return reply('Teks nya mana kak?')
 				tels = body.slice(10)
 				reply(ind.wait())
@@ -1719,7 +1553,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 				gatauda = body.slice(5)
 				reply(ind.wait())
 				anu = await fetchJson(`https://tobz-api.herokuapp.com/api/randomanime?apikey=BotWeA`, {method: 'get'})
@@ -1731,7 +1565,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 				gatauda = body.slice(4)
 				reply(ind.wait())
 				anu = await fetchJson(`https://alfians-api.herokuapp.com/api/nekonime`, {method: 'get'})
@@ -1739,24 +1573,23 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				itsmeiky.sendMessage(from, buffer, image, {quoted: iky})
 				await limitAdd(sender)
 				break
-                case 'meme':
+                case 'memeindo':
 				 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
-				    reply(mess.wait)
-					anu = await fetchJson(`https://api.fdci.se/rep.php?gambar=MEME BRASIL`, {method: 'get'})
-					ri = JSON.parse(JSON.stringify(anu));
-					ze =  ri[Math.floor(Math.random() * ri.length)];
-					nye = await getBuffer(ze)
-					itsmeiky.sendMessage(from, nye, image, { caption: 'cringe️', quoted: mek })
-					await limitAdd(sender) 	
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
+				gatauda = body.slice(8)
+				reply(ind.wait())
+				anu = await fetchJson(`https://api.zeks.xyz/api/memeindo?apikey=apivinz`, {method: 'get'})
+				buffer = await getBuffer(anu.result)
+				itsmeiky.sendMessage(from, buffer, image, {quoted: iky})
+				await limitAdd(sender)
 				break
 				case 'darkjoke': // Update By Rzky
 				 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 				gatauda = body.slice(8)
 				reply(ind.wait())
 				anu = await fetchJson(`http://lolhuman.herokuapp.com/api/meme/darkjoke?apikey=WEMPYGANSS`, {method: 'get'})
@@ -1769,11 +1602,11 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 				reply(ind.wait())
 				anu = await fetchJson(`https://tobz-api.herokuapp.com/api/randomkpop?apikey=BotWeA`, {method: 'get'})
 				buffer = await getBuffer(anu.result)
-				itsmeiky.sendMessage(from, buffer, image, {quoted: iky, caption: '@tiago.lve...'})
+				itsmeiky.sendMessage(from, buffer, image, {quoted: iky, caption: 'Nih kpopnya kak...'})
 				await limitAdd(sender)
 				break
 		case 'aesthetic':
@@ -1781,7 +1614,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 				reply(ind.wait())
 				anu = await fetchJson(`https://api.zeks.xyz/api/estetikpic?apikey=apivinz`, {method: 'get'})
 				buffer = await getBuffer(anu.result.result)
@@ -1792,11 +1625,11 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (!isPremium) return reply('Desculpe, você não é um usuário premium!')
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (!isPremium) return reply('Maaf kamu bukan user premium!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 				data = await fetchJson(`https://tobz-api.herokuapp.com/api/joox?q=${body.slice(6)}&apikey=BotWeA`, {method: 'get'})
 				if (data.error) return reply(data.error)
-				infomp3 = `*Música Encontrada!!!*\nTitulo : ${data.result.judul}\nAlbum : ${data.result.album}\nPublicado : ${data.result.dipublikasi}`
+				infomp3 = `*Lagu Ditemukan!!!*\nJudul : ${data.result.judul}\nAlbum : ${data.result.album}\nDipublikasi : ${data.result.dipublikasi}`
 				buffer = await getBuffer(data.result.thumb)
 				lagu = await getBuffer(data.result.mp3)
 				itsmeiky.sendMessage(from, buffer, image, {quoted: iky, caption: infomp3})
@@ -1807,13 +1640,13 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (!isPremium) return reply('Desculpe, você não é um usuário premium!')
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (!isPremium) return reply('Maaf kamu bukan user premium!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 				reply(ind.wait())
 				play = body.slice(5)
-				anu = await fetchJson(`https://videfikri.com/api/ytplay/?query=${played}`)
+				anu = await fetchJson(`https://api.zeks.xyz/api/ytplaymp3?q=${play}&apikey=apivinz`)
 				if (anu.error) return reply(anu.error)
-				infomp3 = `*Música encontrada!!!*\nTitulo : ${anu.result.title}\nFonte : ${anu.result.source}\nTamanho : ${anu.result.size}\n\n*Enquanto Eu Baixo Sua Música, Me Segue No Insta @tiago.lve*`
+				infomp3 = `*Lagu Ditemukan!!!*\nJudul : ${anu.result.title}\nSource : ${anu.result.source}\nUkuran : ${anu.result.size}\n\n*TUNGGU SEBENTAR LAGI DIKIRIM MOHON JANGAN SPAM YA SAYANG*`
 				buffer = await getBuffer(anu.result.thumbnail)
 				itsmeiky.sendMessage(from, buffer, image, {quoted: iky, caption: infomp3})
 				lagu = await getBuffer(anu.result.url_audio)
@@ -1824,13 +1657,13 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (!isPremium) return reply('Desculpe, você não é um usuário premium!')
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (!isPremium) return reply('Maaf kamu bukan user premium!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 				reply(ind.wait())
 				played = body.slice(6)
 				anu = await fetchJson(`https://videfikri.com/api/ytplay/?query=${played}`)
 				if (anu.error) return reply(anu.error)
-				iinfomp3 = `*Música Encontrada!!!*\nTitulo : ${anu.result.title}\nFonte : ${anu.result.id}\nTamanho : ${anu.result.size}\n\n*Enquanto Eu Baixo Sua Música, Me Segue No Insta @tiago.lve*`
+				iinfomp3 = `*Lagu Ditemukan!!!*\nJudul : ${anu.result.title}\nSource : ${anu.result.id}\nUkuran : ${anu.result.size}\n\n*TUNGGU SEBENTAR LAGI DIKIRIM MOHON JANGAN SPAM YA SAYANG*`
 				buffer = await getBuffer(anu.result.thumbnail)
 				itsmeiky.sendMessage(from, buffer, image, {quoted: iky, caption: iinfomp3})
 				laguu = await getBuffer(anu.result.url)
@@ -1846,7 +1679,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 				if (args.length < 1) return reply(ind.wrongf())
 				vin = body.slice(7)
 				reply(ind.wait())
@@ -1858,7 +1691,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 				if (args.length < 1) return reply(ind.wrongf())
 				if (!q.includes('|')) return  reply(ind.wrongf())
 				const aruga1 = q.substring(0, q.indexOf('|') - 0)
@@ -1872,7 +1705,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 				if (args.length < 1) return reply(ind.wrongf())
 				aruga = body.slice(8)
 				reply(ind.wait())
@@ -1884,7 +1717,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 				if (args.length < 1) return reply(ind.wrongf())
 				aruga = body.slice(11)
 				reply(ind.wait())
@@ -1896,7 +1729,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 				if (args.length < 1) return reply(ind.wrongf())
 				aruga = body.slice(11)
 				reply(ind.wait())
@@ -1908,7 +1741,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 				if (args.length < 1) return reply(ind.wrongf())
 				aruga = body.slice(11)
 				reply(ind.wait())
@@ -1920,7 +1753,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 				if (args.length < 1) return reply(ind.wrongf())
 				aruga = body.slice(10)
 				reply(ind.wait())
@@ -1932,7 +1765,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 				if (args.length < 1) return reply(ind.wrongf())
 				aruga = body.slice(10)
 				reply(ind.wait())
@@ -1944,7 +1777,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 				if (args.length < 1) return reply(ind.wrongf())
 				aruga = body.slice(7)
 				reply(ind.wait())
@@ -1956,7 +1789,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 				if (args.length < 1) return reply(ind.wrongf())
 				aruga = body.slice(8)
 				reply(ind.wait())
@@ -1968,7 +1801,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 				if (args.length < 1) return reply(ind.wrongf())
 				aruga = body.slice(7)
 				reply(ind.wait())
@@ -1980,7 +1813,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 				if (args.length < 1) return reply(ind.wrongf())
 				arugazzz = body.slice(10)
 				reply(ind.wait())
@@ -1992,7 +1825,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 				if (args.length < 1) return reply(ind.wrongf())
 				aruga = body.slice(6)
 				reply(ind.wait())
@@ -2005,7 +1838,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					     // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					    if (isLimit(sender)) return reply(ind.limitend(pusname))
-					    if (isBanned) return reply('Desculpe você foi pego!')
+					    if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					    if (!isGroup) return reply(ind.groupo())
 					    if (!isNsfw) return reply(ind.nsfwoff())
 						res = await fetchJson(`https://st4rz.herokuapp.com/api/1cak`, {method: 'get'})
@@ -2021,7 +1854,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					anu = await fetchJson(`https://docs-jojo.herokuapp.com/api/quotesnime/random`, {method: 'get'})
 					reply(anu.data.quote)
 					await limitAdd(sender)
@@ -2030,7 +1863,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					anu = await fetchJson(`https://docs-jojo.herokuapp.com/api/twichquote`, {method: 'get'})
 					reply(anu.result)
 					await limitAdd(sender)
@@ -2039,7 +1872,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					anu = await fetchJson(`http://lolhuman.herokuapp.com/api/random/faktaunik?apikey=WEMPYGANSS`, {method: 'get'})
 					reply(anu.result)
 					await limitAdd(sender)
@@ -2048,7 +1881,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					data = await fetchJson(`https://api.shizukaa.xyz/api/randomquote?apikey=itsmeiky633`)
 					cop = `Quotes : _${data.quotes}_\n\nAuthor : _${data.author}_`
 					reply(cop)
@@ -2058,7 +1891,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					data = await fetchJson(`https://videfikri.com/api/covidindo/`)
 					hasil = `Positif : ${data.result.positif}\nSembuh : ${data.result.sembuh}\nMeninggal : ${data.result.meninggal}\nDirawat : ${data.result.dalam_perawatan}`
 					reply(hasil)
@@ -2100,11 +1933,10 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					await limitAdd(sender)
 					break
 		case 'infonomor':
-		case 'infonumero':
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					if (args.length < 1) return reply(`Masukan Nomor\nContoh : ${prefix}infonomor 0812345678`)
 					data = await fetchJson(`https://docs-jojo.herokuapp.com/api/infonomor?no=${body.slice(11)}`)
 					if (data.error) return reply(data.error)
@@ -2114,11 +1946,10 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					await limitAdd(sender)
 					break 
 		case 'infogempa':
-		case 'infoterremoto':
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					anu = await fetchJson(`https://tobz-api.herokuapp.com/api/infogempa?apikey=BotWeA`, {method: 'get'})
 					if (anu.error) return reply(anu.error)
 					buffer= await getBuffer(anu.map)
@@ -2131,7 +1962,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					anu = await fetchJson(`https://tobz-api.herokuapp.com/api/cuaca?wilayah=${tels}&apikey=BotWeA`, {method: 'get'})
 					if (anu.error) return reply(anu.error)
 					hasil = `*Tempat* : ${anu.result.tempat}\n*Cuaca* : ${anu.result.cuaca}\n*Angin* : ${anu.result.angin}\n*Suhu* : ${anu.result.suhu}\n*Kelembapan* : ${anu.result.kelembapan}`
@@ -2141,7 +1972,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
                 case 'slap':
 					kapankah = body.slice(1)
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					const slap =['anjing','babi lu','anak anjing','udah tolol nub Lagi','muka lo kek monyet','udah jomblo sendirian lagi dirumah tolol','so so an mau punya pacar muka aja kek monyet lepass dari kandang','ganteng doang di toxic aja dibilang baperan','pantek kau','bangsat kau','ku entod kalian nangis kau','anjing lu semua','lihat anak anjing lagi baca','ganteng doang jemput cewe dipanggang','kamu cantik beb bullshit anjing cowo buaya','anak setan','puki lu','anjing ngajak gelud','sama hantu takut cupu bangsat','cupu cupu aja gausah bacot','bangsat lu semua','bocah lu semua bangsat','3 Hari Lagi']
 					const ple = slap[Math.floor(Math.random() * slap.length)]
 					pod = await getBuffer(`https://media.giphy.com/media/S8507sBJm1598XnsgD/source.gif`)
@@ -2152,7 +1983,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					ranp = getRandom('.gif')
 					rano = getRandom('.webp')
 					buffer = await getBuffer('https://media.giphy.com/media/S8507sBJm1598XnsgD/source.gif', {method: 'get'})
@@ -2169,7 +2000,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					itsmeiky.updatePresence(from, Presence.composing) 
 					data = await fetchJson(`https://api.zeks.xyz/api/tribunews?apikey=apivinz`, {method: 'get'})
 					teks = '=================\n'
@@ -2183,7 +2014,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					itsmeiky.updatePresence(from, Presence.composing) 
 					data = await fetchJson(`http://lolhuman.herokuapp.com/api/newsinfo?apikey=WEMPYGANSS`, {method: 'get'})
 					teks = '=================\n'
@@ -2197,7 +2028,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					itsmeiky.updatePresence(from, Presence.composing) 
 					data = await fetchJson(`https://docs-jojo.herokuapp.com/api/infohoax`, {method: 'get'})
 					teks = '=================\n'
@@ -2211,7 +2042,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					data = await fetchJson(`https://api.vhtear.com/trendtwitter?country=indonesia&apikey=alpinbotwa`, {method: 'get'})
 					teks = '=================\n'
 					for (let i of data.result) {
@@ -2242,7 +2073,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					brien = body.slice(9)
 					brainly(`${brien}`).then(res => {
 					teks = '❉───────────❉\n'
@@ -2277,7 +2108,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					itsmeiky.updatePresence(from, Presence.composing) 
 					data = await fetchJson(`https://api.fdci.se/rep.php?gambar=${body.slice(11)}`, {method: 'get'})
 					reply(ind.wait())
@@ -2510,27 +2341,13 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					if (!isUrl(args[0]) && !args[0].includes('youtu.be')) return reply(mess.error.Iv)
 					anu = await fetchJson(`https://api.shizukaa.xyz/api/ytmp4?apikey=itsmeiky633&url=${args[0]}`, {method: 'get'})
 					if (anu.error) return reply(anu.error)
-					ytt = `уАМ *DOWNLOADER YOUTUBE MP4* уАН\n\nтАв Titulp : *${anu.title}*\nтАв *Tamanho:* ${anu.filesize}\nтАв *Descrição:* ${anu.desc}\n\n Espere um minuto 1 minuto talvez um pouco mais por causa do download de vídeos`
+					ytt = `уАМ *YOUTUBE MP4 DOWNLOADER* уАН\n\nтАв Title : *${anu.title}*\nтАв *Size:* ${anu.filesize}\nтАв *Deskripsi:* ${anu.desc}\n\n Tunggu Sebentar 1 menit Mungkin Agak Lama Karna Mendownload Video`
 					buff = await getBuffer(anu.thumb)
 					reply(mess.wait)
 					buffer = await getBuffer(anu.result)
 					itsmeiky.sendMessage(from, buff, image, {quoted: shizuka, caption: ytt})
 					itsmeiky.sendMessage(from, buffer, video, {mimetype: 'video/mp4', filename: `${anu.title}.mp4`, quoted: shizuka, caption: 'Nih Gan'})
 					await limitAdd(sender) 
-					break
-				case 'baixamp4':
-				       // Fix Bug By ItsmeikyXSec404				
-                 if (!isRegistered) return reply( ind.noregis())
-					if (isLimit(sender)) return reply(ind.limitend(pusname))
-					if (args.length < 1) return reply('Cadê o url, hum?')
-					if(!isUrl(args[0]) && !args[0].includes('youtu')) return reply(mess.error.Iv)
-					anu = await fetchJson(`https://st4rz.herokuapp.com/api/ytv2?url=${args[0]}`, {method: 'get'})
-					if (anu.error) return reply(anu.error)
-					teks = `*Titulo* : ${anu.title}`
-					thumb = await getBuffer(anu.thumb)
-					itsmeiky.sendMessage(from, thumb, image, {quoted: mek, caption: teks})
-					buffer = await getBuffer(anu.result)
-					itsmeiky.sendMessage(from, buffer, video, {mimetype: 'video/mp4', filename: `${anu.title}.mp4`, quoted: mek})
 					break 
 			case 'ytmp3':
 			         // Fix Bug By ItsmeikyXSec404				
@@ -2556,7 +2373,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 						if (!isNsfw) return reply(' *FALSE* ')
 						res = await fetchJson(`https://api.shizukaa.xyz/api/neko?apikey=itsmeiky633`, {method: 'get'})
 						buffer = await getBuffer(res.neko)
-						itsmeiky.sendMessage(from, buffer, image, {quoted: shizuka, caption: 'Não faça ingredientes para o tio comum'})
+						itsmeiky.sendMessage(from, buffer, image, {quoted: shizuka, caption: 'Jangan jadiin bahan buat comli om'})
 					    } catch (e) {
 						console.log(`Error :`, color(e,'red'))
 						reply(' *ERROR* ')
@@ -2567,7 +2384,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					if (args.length < 1) return reply('kasih teks lah^_^!!!')
 					anu = await fetchJson(`https://api.zeks.xyz/api/hilihmaker?text=${body.slice(7)}&apikey=apivinz`, {method: 'get'})
 					reply(anu.result)
@@ -2577,7 +2394,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					if (args.length < 1) return reply('kasih teks lah^_^!!!')
 					anu = await fetchJson(`https://a.apimau.ga/vokal?vokal=o&teks=${body.slice(7)}`, {method: 'get'})
 					reply(anu.result)
@@ -2587,7 +2404,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					if (args.length < 1) return reply('kasih teks lah^_^!!!')
 					anu = await fetchJson(`https://a.apimau.ga/vokal?vokal=a&teks=${body.slice(7)}`, {method: 'get'})
 					reply(anu.result)
@@ -2597,7 +2414,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					if (args.length < 1) return reply('kasih teks lah^_^!!!')
 					anu = await fetchJson(`https://a.apimau.ga/vokal?vokal=u&teks=${body.slice(7)}`, {method: 'get'})
 					reply(anu.result)
@@ -2607,7 +2424,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					if (args.length < 1) return reply('kasih teks lah^_^!!!')
 					anu = await fetchJson(`https://a.apimau.ga/vokal?vokal=e&teks=${body.slice(7)}`, {method: 'get'})
 					reply(anu.result)
@@ -2635,7 +2452,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					if (args.length < 1) return reply('kasih teks lah^_^!!!')
 					data = await fetchJson(`https://api.zeks.xyz/api/alaymaker?kata=${body.slice(6)}&apikey=apivinz`)
 					reply(data.result)
@@ -2645,7 +2462,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					if (args.length < 1) return reply('kasih teks lah^_^!!!')
 					data = await fetchJson(`http://lolhuman.herokuapp.com/api/upperlower?apikey=WEMPYGANSS&text=${body.slice(6)}`)
 					reply(data.result)
@@ -2655,7 +2472,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					data = await fetchJson(`https://tobz-api.herokuapp.com/api/randomfmylife?apikey=BotWeA`)
 					hasil = data.result
 					reply(hasil)
@@ -2665,7 +2482,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					if (args.length < 1) return reply('Judul lagunya mana kak')
 					tels = body.slice(7)					
 					anu = await fetchJson(`https://tobz-api.herokuapp.com/api/chord?q=${tels}&apikey=BotWeA`, {method: 'get'})
@@ -2676,7 +2493,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					gatauda = body.slice(8)
 					anu = await fetchJson(`https://docs-jojo.herokuapp.com/api/katacinta`, {method: 'get'})
 					reply(anu.result)
@@ -2686,7 +2503,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					gatauda = body.slice(8)					
 					anu = await fetchJson(`https://api.zeks.xyz/api/pantun?apikey=apivinz`, {method: 'get'})
 					reply(anu.result.pantun)
@@ -2696,7 +2513,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					anu = await fetchJson(`https://api.shizukaa.xyz/api/bacotandilan?apikey=itsmeiky633`, {method: 'get'})
 					reply(anu.result)
 					await limitAdd(sender)
@@ -2705,7 +2522,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					anu = await fetchJson(`https://api.shizukaa.xyz/api/bucin?apikey=itsmeiky633`, {method: 'get'})
 					reply(anu.result)
 					await limitAdd(sender)
@@ -2714,7 +2531,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					anu = await fetchJson(`https://api.shizukaa.xyz/api/bucin?apikey=itsmeiky633`, {method: 'get'})
 					reply(anu.result)
 					await limitAdd(sender)
@@ -2723,7 +2540,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					anu = await fetchJson(`http://lolhuman.herokuapp.com/api/cerpen?apikey=WEMPYGANSS`, {method: 'get'})
 					reply(anu.result.cerpen)
 					await limitAdd(sender)
@@ -2732,7 +2549,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					anu = await fetchJson(`http://lolhuman.herokuapp.com/api/random/quotes?apikey=WEMPYGANSS`, {method: 'get'})
 					reply(anu.result.quote)
 					await limitAdd(sender)
@@ -2741,7 +2558,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					anu = await fetchJson(`https://api.shizukaa.xyz/api/bacotanhacker?apikey=itsmeiky633`, {method: 'get'})
 					reply(anu.result)
 					await limitAdd(sender)
@@ -2750,7 +2567,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					anu = await fetchJson(`https://api.shizukaa.xyz/api/quotedoraemon?apikey=itsmeiky633`, {method: 'get'})
 					reply(anu.result.quote)
 					await limitAdd(sender)
@@ -2758,7 +2575,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 		case 'resepmasakan':
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					anu = await fetchJson(`https://mnazria.herokuapp.com/api/resep?key=${body.slice(14)}`, {method: 'get'})
 					if (anu.error) return reply(anu.error)
 					buffer = await getBuffer(anu.thumb_item)
@@ -2770,7 +2587,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					hmm = await fetchJson(`https://api.zeks.xyz/api/igstalk?username=${body.slice(9)}&apikey=apivinz`)
 					buffer = await getBuffer(hmm.profile_pic)
 					hasil = `Fullname : ${hmm.fullname}\nPengikut : ${hmm.follower}\nMengikuti : ${hmm.following}\nPrivate : ${hmm.is_private}\nVerified : ${hmm.is_verified}\nbio : ${hmm.bio}`
@@ -2781,7 +2598,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-					if (isBanned) return reply('Desculpe você foi pego!')
+					if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					ige = body.slice(10)
 					anu = await fetchJson(`https://tobz-api.herokuapp.com/api/film2?q=${ige}&apikey=BotWeA`)
 					buffer7 = await getBuffer(anu.result.thumbnail)
@@ -2792,7 +2609,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 		case 'heroml':  // Update By RzkyO & ItsmeikyXSec404
 					if (!isRegistered) return reply(ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-					if (isBanned) return reply('Desculpe você foi pego!')
+					if (isBanned) return reply('Maaf kamu sudah terbenned!')
 				reply(`[❕] Loading`)
 				ige = body.slice(8)
 				anu = await fetchJson(`http://api.hurtzcrafter.xyz/herodetail?hero=${ige}`) 
@@ -2864,7 +2681,6 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					await limitAdd(sender)
 					break 
 		case 'grouplist':
-		case 'grupolist':
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					itsmeiky.updatePresence(from, Presence.composing) 
@@ -2879,7 +2695,6 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					break
 		//daftar 
 		case 'daftar':
-		case 'registrar':
                 			if (isRegistered) return  reply(ind.rediregis())
                 			if (!q.includes('|')) return  reply(ind.wrongf())
                 			const namaUser = q.substring(0, q.indexOf('|') - 0)
@@ -2915,7 +2730,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pushname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					if (!isEventon) return reply(`Maaf ${pushname} event mining tidak di aktifkan oleh owner`)
 					if (isOwner | isAdmin | isPremium) {
 					const one = Math.ceil(Math.random() * 100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000)
@@ -2932,7 +2747,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					bisakah = body.slice(1)
 					const bisa =['Bisa','Tidak Bisa','Coba Ulangi']
 					const keh = bisa[Math.floor(Math.random() * bisa.length)]
@@ -2943,7 +2758,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					kapankah = body.slice(1)
 					const kapan =['Besok','Lusa','1 Hari Lagi','2 Hari Lagi','3 Hari Lagi','4 Hari Lagi','5 Hari Lagi','6 Hari Lagi','1 Bulan Lagi','2 Bulan Lagi','3 Bulan Lagi','4 Bulan Lagi','5 Bulan Lagi','6 Bulan Lagi','7 Bulan Lagi','8 Bulan Lagi','9 Bulan Lagi','10 Bulan Lagi','11 Bulan Lagi','1 Tahun lagi','2 Tahun lagi','3 Tahun lag0i','4 Tahun lagi','5 Tahun lagi','6 Tahun lagi','7 Tahun lagi','8 Tahun lagi','9 Tahun lagi','10 Tahun lagi']
 					const koh = kapan[Math.floor(Math.random() * kapan.length)]
@@ -2954,7 +2769,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					apakah = body.slice(1)
 					const apa =['Iya','Tidak','Bisa Jadi','Coba Ulangi']
 					const kah = apa[Math.floor(Math.random() * apa.length)]
@@ -2965,7 +2780,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					bagaimanakah = body.slice(1)
 					const bagai =['Kita Kenal?','Nanya Terus deh','Tidak Tahu','Coba Ulangi','Cari Aja Sendiri','Kurang Tahu','Mana Saya Tahu, Saya kan ikan']
 					const mana = bagai[Math.floor(Math.random() * bagai.length)]
@@ -2976,7 +2791,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					rate = body.slice(1)
 					const ra =['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','41','42','43','44','45','46','47','48','49','50','51','52','53','54','55','56','57','58','59','60','61','62','63','64','65','66','67','68','69','70','71','72','73','74','75','76','77','78','79','80','81','82','83','84','85','86','87','88','89','90','91','92','93','94','95','96','97','98','99','100']
 					const te = ra[Math.floor(Math.random() * ra.length)]
@@ -2987,7 +2802,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					sange = body.slice(1)
 					const sang =['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','41','42','43','44','45','46','47','48','49','50','51','52','53','54','55','56','57','58','59','60','61','62','63','64','65','66','67','68','69','70','71','72','73','74','75','76','77','78','79','80','81','82','83','84','85','86','87','88','89','90','91','92','93','94','95','96','97','98','99','100']
 					const nge = sang[Math.floor(Math.random() * sang.length)]
@@ -2998,7 +2813,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					gayy = body.slice(1)
 					const gay =['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','41','42','43','44','45','46','47','48','49','50','51','52','53','54','55','56','57','58','59','60','61','62','63','64','65','66','67','68','69','70','71','72','73','74','75','76','77','78','79','80','81','82','83','84','85','86','87','88','89','90','91','92','93','94','95','96','97','98','99','100']
 					const yag = gay[Math.floor(Math.random() * gay.length)]
@@ -3009,7 +2824,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					lesbii = body.slice(1)
 					const lesbi =['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','41','42','43','44','45','46','47','48','49','50','51','52','53','54','55','56','57','58','59','60','61','62','63','64','65','66','67','68','69','70','71','72','73','74','75','76','77','78','79','80','81','82','83','84','85','86','87','88','89','90','91','92','93','94','95','96','97','98','99','100']
 					const bi = lesbi[Math.floor(Math.random() * lesbi.length)]
@@ -3020,7 +2835,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					ganteng = body.slice(1)
 					const gan =['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','41','42','43','44','45','46','47','48','49','50','51','52','53','54','55','56','57','58','59','60','61','62','63','64','65','66','67','68','69','70','71','72','73','74','75','76','77','78','79','80','81','82','83','84','85','86','87','88','89','90','91','92','93','94','95','96','97','98','99','100']
 					const teng = gan[Math.floor(Math.random() * gan.length)]
@@ -3031,7 +2846,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					cantik = body.slice(1)
 					const can =['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','41','42','43','44','45','46','47','48','49','50','51','52','53','54','55','56','57','58','59','60','61','62','63','64','65','66','67','68','69','70','71','72','73','74','75','76','77','78','79','80','81','82','83','84','85','86','87','88','89','90','91','92','93','94','95','96','97','98','99','100']
 					const tik = can[Math.floor(Math.random() * can.length)]
@@ -3042,7 +2857,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					watak = body.slice(1)
 					const wa =['Penyayang','Pemurah','Pemarah','Pemaaf','Penurut','Baik','Baperan','Baik Hati','penyabar','UwU','top deh, pokoknya','Suka Membantu']
 					const tak = wa[Math.floor(Math.random() * wa.length)]
@@ -3053,7 +2868,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					hobby = body.slice(1)
 					const hob =['Memasak','Membantu Atok','Mabar','Nobar','Sosmedtan','Membantu Orang lain','Nonton Anime','Nonton Drakor','Naik Motor','Nyanyi','Menari','Bertumbuk','Menggambar','Foto fotoan Ga jelas','Maen Game','Berbicara Sendiri']
 					const by = hob[Math.floor(Math.random() * hob.length)]
@@ -3070,7 +2885,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 		case 'menu':
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					const reqXp  = 5000 * (Math.pow(2, getLevelingLevel(sender)) - 1)
 					const uangku = checkATMuser(sender)
 					await costum(ind.menu(pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp, _registered, uangku, role), text, tescuk, cr)
@@ -3085,32 +2900,30 @@ itsmeiky.on('group-participants-update', async (anu) => {
 		case 'menupict':
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					buffer = await getBuffer(`https://i.ibb.co/tqf0P7q/Whats-App-Image-2021-02-22-at-01-46-22.png`)
 					itsmeiky.sendMessage(from, buffer, image, { quoted: iky, caption: randompict(prefix)})
 					break
 		case 'menuowner':
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					buffer = await getBuffer(`https://i.ibb.co/5nBhggv/2b84cc9cb84d76bc5c2b27e81d6aecfd.png`)
 					itsmeiky.sendMessage(from, buffer, image, { quoted: iky, caption: developer(prefix)})
 					break
 		case 'bahasa':
-		case 'cdidioma':
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					itsmeiky.sendMessage(from, bahasa(), text)
 					await limitAdd(sender)
 					break
 		case 'kodenegara':
-		case 'cdpaís':
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					itsmeiky.sendMessage(from, negara(), text)
 					await limitAdd(sender)
 					break
@@ -3120,8 +2933,8 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (!isPremium) return reply('Desculpe, você não é um usuário premium!')
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (!isPremium) return reply('Maaf kamu bukan user premium!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					itsmeiky.deleteMessage(from, { id: iky.message.extendedTextMessage.contextInfo.stanzaId, remoteJid: from, fromMe: true })
 					await limitAdd(sender)
 					break
@@ -3154,7 +2967,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 		case 'info':
 					me = itsmeiky.user
 					uptime = process.uptime()
-					teks = `*INFORMAÇÃO DO DONO*\n*Dono Do Bot* : Muhammad Ridwan Reynaldy\n*Número Do Dono* : wa.me/553398091185\n*Ig Do Dono* : www.instagram.com/tiago.lve\n━━━━━━━━━━━━━━━━━━━━\n*INFORMAÇÕES DO BOT*\n*Nome Do Bot* : ${me.name}\n*Número Do Bot* : @${me.jid.split('@')[0]}\n*Prefix* : ${prefix}\n*Total De Números Bloqueado* : ${blocked.length}\n*O bot está ativo em* : ${kyun(uptime)}\n*Fãs página FB* : https://www.facebook.com/\n*Modelo* : ${prefix}lpr _Para denunciar um administrador de bot por meio de um bot_\n*Modelo* : ${prefix}dono para entrar em contato com nosso administrador de bot.`
+					teks = `*INFO OWNER*\n*Owner bot* : Muhammad Ridwan Reynaldy\n*No Owner* : wa.me/553398091185\n*Ig owner* : www.instagram.com/anemio999\n━━━━━━━━━━━━━━━━━━━━\n*INFO BOT*\n*Nama bot* : ${me.name}\n*Nomor bot* : @${me.jid.split('@')[0]}\n*Prefix* : ${prefix}\n*Total block contact* : ${blocked.length}\n*The bot is active on* : ${kyun(uptime)}\n*Fans page FB* : https://www.facebook.com/ainneboot\n*Ketik* : ${prefix}lpr _Untuk melaporkan admin bot melalui bot_\n*Ketik* : ${prefix}owner untuk menghubungi admin bot kami.`
 					buffer = await getBuffer(`https://i.ibb.co/4jknX6w/pp.jpg`)
 					itsmeiky.sendMessage(from, buffer, image, {caption: teks, contextInfo:{mentionedJid: [me.jid]}})
 					break
@@ -3174,11 +2987,10 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					text: teks1,
 					contextInfo: {mentionedJid: [nomor]},
 					}
-					itsmeiky.sendMessage('6281281872699@s.whatsapp.net', options, text, {quoted: iky})
+					itsmeiky.sendMessage('553398091185@s.whatsapp.net', options, text, {quoted: iky})
 					reply('Masalah telah di laporkan ke owner Shizuka BOT, Laporan palsu atau main² tidak akan ditanggapi.')
 					break
 		case 'request':
-		case 'reportar':
 					const cfrr = body.slice(8)
 					if (cfrr.length > 300) return itsmeiky.sendMessage(from, 'Maaf Teks Terlalu Panjang, Maksimal 300 Teks', msgType.text, {quoted: iky})
 					var nomor = iky.participant
@@ -3188,12 +3000,12 @@ itsmeiky.on('group-participants-update', async (anu) => {
                          				contextInfo: {mentionedJid: [nomor]},
                      			}
 					itsmeiky.sendMessage('553398091185@s.whatsapp.net', options, text, {quoted: iky})
-					itsmeiky.sendMessage('553398091185@s.whatsapp.net', options, text, {quoted: iky})
-					itsmeiky.sendMessage('553398091185@s.whatsapp.net', options, text, {quoted: iky})
-					reply('SUA SOLICITAÇÃO FOI PARA O PROPRIETÁRIO GG BOT, solicitações falsas ou rede elétrica não serão respondidas.')
+					itsmeiky.sendMessage('6281315113882@s.whatsapp.net', options, text, {quoted: iky})
+					itsmeiky.sendMessage('6282148618789@s.whatsapp.net', options, text, {quoted: iky})
+					reply('REQUEST ANDA TELAH SAMPAI KE OWNER Shizuka BOT, Requests palsu atau main² tidak akan ditanggapi.')
 					break
 		case 'blocklist': 
-					teks = '*Esta é a lista de números bloqueados* :\n'
+					teks = '*This is list of blocked number* :\n'
 					for (let block of blocked) {
 						teks += `*~>* @${block.split('@')[0]}\n`
 					}
@@ -3204,7 +3016,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					if (!isGroup) return reply(ind.groupo())
 					if (!isGroupAdmins) return reply(ind.admin())
 					var value = body.slice(9)
@@ -3227,7 +3039,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
                                 tels = body.slice(4)
                                 if (args.length < 1) return reply('Kakak afk karena apa?')
                                 var ain = iky.participant
@@ -3242,7 +3054,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					var gh = body.slice(12)
 					var quote = gh.split("|")[0];
 					var wm = gh.split("|")[1];
@@ -3258,7 +3070,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					const trut =['Pernah suka sama siapa aja? berapa lama?','Kalau boleh atau kalau mau, di gc/luar gc siapa yang akan kamu jadikan sahabat?(boleh beda/sma jenis)','apa ketakutan terbesar kamu?','pernah suka sama orang dan merasa orang itu suka sama kamu juga?','Siapa nama mantan pacar teman mu yang pernah kamu sukai diam diam?','pernah gak nyuri uang nyokap atau bokap? Alesanya?','hal yang bikin seneng pas lu lagi sedih apa','pernah cinta bertepuk sebelah tangan? kalo pernah sama siapa? rasanya gimana brou?','pernah jadi selingkuhan orang?','hal yang paling ditakutin','siapa orang yang paling berpengaruh kepada kehidupanmu','hal membanggakan apa yang kamu dapatkan di tahun ini','siapa orang yang bisa membuatmu sange','siapa orang yang pernah buatmu sange','(bgi yg muslim) pernah ga solat seharian?','Siapa yang paling mendekati tipe pasangan idealmu di sini','suka mabar(main bareng)sama siapa?','pernah nolak orang? alasannya kenapa?','Sebutkan kejadian yang bikin kamu sakit hati yang masih di inget','pencapaian yang udah didapet apa aja ditahun ini?','kebiasaan terburuk lo pas di sekolah apa?']
 					const ttrth = trut[Math.floor(Math.random() * trut.length)]
 					truteh = await getBuffer(`https://i.ibb.co/305yt26/bf84f20635dedd5dde31e7e5b6983ae9.jpg`)
@@ -3269,7 +3081,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					const dare =['Kirim pesan ke mantan kamu dan bilang "aku masih suka sama kamu','telfon crush/pacar sekarang dan ss ke pemain','pap ke salah satu anggota grup','Bilang "KAMU CANTIK BANGET NGGAK BOHONG" ke cowo','ss recent call whatsapp','drop emot "🦄💨" setiap ngetik di gc/pc selama 1 hari','kirim voice note bilang can i call u baby?','drop kutipan lagu/quote, terus tag member yang cocok buat kutipan itu','pake foto sule sampe 3 hari','ketik pake bahasa daerah 24 jam','ganti nama menjadi "gue anak lucinta luna" selama 5 jam','chat ke kontak wa urutan sesuai %batre kamu, terus bilang ke dia "i lucky to hv you','prank chat mantan dan bilang " i love u, pgn balikan','record voice baca surah al-kautsar','bilang "i hv crush on you, mau jadi pacarku gak?" ke lawan jenis yang terakhir bgt kamu chat (serah di wa/tele), tunggu dia bales, kalo udah ss drop ke sini','sebutkan tipe pacar mu!','snap/post foto pacar/crush','teriak gajelas lalu kirim pake vn kesini','pap mukamu lalu kirim ke salah satu temanmu','kirim fotomu dengan caption, aku anak pungut','teriak pake kata kasar sambil vn trus kirim kesini','teriak " anjimm gabutt anjimmm " di depan rumah mu','ganti nama jadi " BOWO " selama 24 jam','Pura pura kerasukan, contoh : kerasukan maung, kerasukan belalang, kerasukan kulkas, dll']
 					const der = dare[Math.floor(Math.random() * dare.length)]
 					tod = await getBuffer(`https://i.ibb.co/305yt26/bf84f20635dedd5dde31e7e5b6983ae9.jpg`)
@@ -3280,7 +3092,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					const quotes =['Jangan pernah mengabaikan apapun yang terjadi, suatu saat akan sadar dan menyesal, ingat tuhan akan selalu memberikan penyesalan terakhir ...','Aku percaya, suatu hari nanti, aku akan memiliki semua hal yang telah aku doa kan selama ini.','Balas dendam yang paling terbaik adalah mengubah dirimu menjadi yang lebih baik lagi.','Hidupku jauh dari kata mewah, kalau kalian lihat aku selalu senang, itu karena aku tau cara menikmati hidup.','Persahabatan bukan tentang orang yang baik didepanmu, tetapi tentang orang yang tetap baik di belakangmu.','Tidak semua bisa dimiliki. Jaga yang sudah termiliki. Tidak semua bisa diterima. Pertahankan yang sudah ada.','Mereka pikir hidupku enak, padahal aku hanya berusaha untuk tidak mengeluh.','Ibu, sebajingan apapun anakmu ini, Hatiku selalu ingin bisa Membahagiakanmu.','Tidak semua hari berjalan dengan baik tapi ada hal baik di setiap harinya.','Pikiran negatif tidak akan pernah memberi kamu kehidupan yang positif','Mereka pikir hidupku enak, padahal aku hanya berusaha untuk tidak mengeluh.','Saya percaya bahwa satu-satunya keberanian yang dibutuhkan oleh seseorang adalah keberanian untuk mengikuti impian Anda sendiri.','Arti hidup adalah menemukan hadiahmu. Tujuan hidup adalah untuk memberikannya.','Ada kalanya kita dicari ketika diperlukan, Dan dilupakan setelah dapat apa yang dia inginkan.','Aku suka tidur, Bukan karena aku pemalas Hanya saja mimpiku lebih indah dari kenyataan.','Jika kamu terlahir bukan dari keluarga kaya, Maka pastikanlah keluarga kaya berasal dari mu.','Saat kamu memberi orang lain, sesungguhnya pemberian itu adalah untukmu. Dan saat kamu mendoakan orang lain, sesungguhnya doa itu juga untukmu. Maka sibuklah membahagiakan orang lain, agar kemudian dunia akan sibuk membahagiakanmu.','Pernah salah pilih, Pernah salah jalan, Karena ego, Karena ceroboh, Tapi kalau bukan karena salah, Kita tidak akan pernah belajar.','Teruntuk hatiku semoga kamu sabar dan tabah bukan untuk hari ini, tapi untuk setiap hari.','Apapun yang kamu alami hari ini tetaplah terlihat baik-baik saja, are you oke?','Wajar kulitku hitam, Tanganku kasar, Penampilanku dekil, KARENA KEGIATANKU KERJA BUKAN MEMINTA.','Sibuklah mencintai hidupmu sampai kamu tidak punya waktu untuk membenci, menyesal, ataupun merasa takut.','AKU BAHAGIA KARENA BERSYUKUR, BUKAN BERSYUKUR KARENA BAHAGIA.','Hanya karena kamu bisa melakukan apa saja, bukan berarti kamu mampu melakukan segalanya.','Kegagalan adalah kesempatan untuk memulai lagi dengan cara yang lebih cerdas.','Dulu waktu masih kecil tidak sabar pengen jadi dewasa, tapi ketika udah besar, aku baru sadar bahwa jaman kecil lah yang paling bahagia.','Saya adalah saya, Saya bukan dia ataupun mereka Jika ingin bersama saya, Terimalah apa adanya.','Online ku sangatlah santai ada yang chat ya syukur, tidak ada yang chat ya tidur.','Kamu tidak begitu dalam mengenaliku, jadi tolong berhentilah sok tau tentang hidup ku.','Saya terlahir dari keluarga sederhana jadi maaf kalau penampilan saya apa adanya.','Dirimu sebenarnya adalah apa yang kamu lakukan di saat tiada orang yang melihatmu.','Ada dua pilihan hidup di pagi hari. Kembali tidur untuk melanjutkan mimpi, atau bangun tidur untuk mewujudkan mimpi.','Orang yang dibelakangku membicarakan diriku, keadaanku, keburukanku, mungkin ia membahayakan dalam duniaku tapi yang jelas ia bermanfaat untuk akhiratku, maka biarlah ia meneruskannya. *#Jangan lupa tersenyum untuk setiap harinya*','Lupakanlah masalahmu sejenak, dan berbahagialah kamu.','Mencintai memang tentang penerimaan. Tapi bukan untuk dibodohi.','Hidup adalah keseimbangan antara menggenggam dan melepaskan.','Jalanan yang sulit seringkali membawamu ke tujuan yang paling indah.','Kita tidak gagal. Kita hanya telah belajar dari 1000 cara yang salah.','Kalau kamu menginginkan sesuatu yang belum pernah kamu miliki, kamu harus melakukan sesuatu yang belum pernah kamu lakukan.','Jangan berhenti sebelum kamu bangga dengan dirimu sendiri.','Siapapun yang kamu cari.. Percayalah, dia juga sedang mencarimu.','Bahagia itu tujuan, kecewa itu jalan. Seseorang tidak akan sampai ke tujuan, tanpa melewati sebuah jalan.','Teruslah update status, setidaknya orang lain tau bahwa kamu masih hidup.','Bukan aku yang hebat. Tapi doa orang tua ku.','Kalau kamu sering disakiti orang itu artinya kamu orang baik. Ingat, cuma pohon berbuah yang dilempari batu.','Dalam hidup ini, Sadar itu penting loh, Jangan sabar mulu, CAPEK!','Kamu mempunyai banyak pilihan hidup untuk itu, Pilihlah hanya yang bisa benar-benar menjadikanmu lebih baik.','Aku kuat karena aku pernah lemah. Aku berani karena aku pernah merasa takut. Aku bijak karena aku pernah melakukan kesalahan.','Bukan berdoa untuk meminta hidup yang lebih mudah, Tapi berdoalah untuk bisa menjadi manusia yang lebih tangguh dalam menjalani hidup.','Selalu ada kisah yang kamu tidak tau di balik setiap orang. Selalu ada alasan mengapa mereka menjadi seperti itu. Pikiran hal ini sebelum kamu mencoba menghakimi orang lain.','Orang lain hanya melihat hasil akhir tanpa pernah tau bagaimana lelahnya berproses.','Kebahagiaan bukan milik mereka yang memiliki segalanya, Tetapi untuk mereka yang bisa menghargai apa yang mereka miliki.','Aku hanya ingin diperlakukan spesial lagi.','Terkadang, Hal yang menahan mu untuk bergerak maju hanyalah Pikiranmu sendiri.','Dua hal Menggambarkan dirimu : Kesabaranmu saat tak punya apa-apa Dan Sikapmu saat memiliki segalanya.','Kita hanya bersama bukan bersatu.','Saat kamu benar Semua orang lupa Saat kamu salah Semua orang ingat','Uang memang bukan segalanya tapi Tanpa uang kehidupan ini akan susah','Bila kamu Yakin , Tak perlu ada kata Mungkin','Jadilah kuat untuk melepaskan, Dan sabar untuk apa yang layak kamu dapatkan.','Pembenci itu sangat pemilih, Mereka hanya membenci orang yang hidupnya lebih baik  daripada hidup mereka.','Pasangan adalah cerminan diri kita. Maka teruslah perbaiki diri menjadi lebih baik setiap harinya, Maka pasangan terbaikpun akan diberikan tuhan.','Persahabatan adalah berbagi suka duka dan menua bersama.','Tersenyumlah ketika melihat masa lalu yang kelam, Karena engkau telah berhasil melewatinya.','Ketika banyak permasalahan yang menghampiri dirimu janganlah meminta untuk lekas dihilangkan. Tapi mintalah agar kamu bisa kuat untuk menyelesaikan.','Kehidupanmu adalah buah dari tindakan yang kamu lakukan. Tidak ada yang bisa disalahkan selain dirimu.','Kehidupan bukanlah masalah yang harus diselesaikan namun kenyataan yang harus diambil pengalamannya.','Semoga di tahun baru, Buku baru, Penulisan yang baru dengan isi yang lebih menarik untuk diimbas kembali di penghujung cerita nanti.','Masa lalu memang menyimpan banyak kenangan, Namun itu bukan alasan untuk tidak terus melangkah ke depan.','Santailah, Nikmati saja hidup, Tersenyumlah lebih banyak, Tertawalah lebih banyak, Dan janganlah memikirkan banyak hal.','Setiap perbuatan yang membahagiakan sesama adalah suatu sikap yang mencerminkan pribadi yang mulia.','Jarang yang sadar kalau kegagalan juga merupakan kesempatan emas untuk menuju kesuksesan.','Lebih baik bekerja keras dalam kediamnya kesunyian, Biarkan nanti sukses mu yang berbicara.','Belajar dari kesalahan masa lalu merupakan salah satu langkah awal untuk maju.']
 					const quo = quotes[Math.floor(Math.random() * quotes.length)]
 					crot = await getBuffer(`https://i.ibb.co/Bj8tD93/IMG-20210126-WA0018.jpg`)
@@ -3291,7 +3103,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					const islami =['Hal yang paling manis adalah ketika seseorang menyebutkan nama kamu di tahajjud mereka.','Ya Allah panggillah diriku dan orang tuaku ke baitullah dalam keadaan sehat walafiat.','Ya Allah semoga seseorang yang engkau jodohkan denganku adalah seseorang yang saat ini sedang aku perjuangkan.','Allah tidak pernah tidur. Semua pasti akan di balas kelak. Orang-orang jahat yang sekarang bisa tertawa karena banyak uang, berkuasa, tapi besok-besok mereka semua di balas seadil-adilnya.','Jangan putus asa, Allah tidak akan mengecewakan hambanya yang ingin memperbaiki diri.','Percayalah orang yang menasehatimu untuk sholat adalah dia yang paling mencintaimu.','Bukannya Allah tidak tahu sedihmu, Tapi Allah tahu kalau kamu itu kuat.','Bacalah Al-Quran, Ia akan menenangkan hatimu meskipun engkau tidak memahami artinya.','Saat kita sakit hati sama omongan orang, saat itu juga sebenarnya Allah ngajarin kita buat jaga omongan kita ke orang lain. Sederhana bukan?','Di dunia ini orang paling baik pun bisa dicela, dan bahkan orang paling jahat sekalipun bisa di bela.','Al-Quran adalah teman yang tidak akan mengecewakan kamu di dunia dan akhirat.','Cara Allah menjawab doa hambanya : Iyaa.. aku beri untukmu sekarang. Tunggu, aku ingin melihat dulu perjuanganmu. Tidak, aku punya yang lebih baik untukmu.','Dan Allah tidak akan mengadzab mereka selama mereka mau Memohon ampun kepada-Nya. [Al-Anfaal, 8:33]','Kesabaran itu ada dua macam : Sabar atas sesuatu yang tidak kamu ingin. Sabar menahan diri dari sesuatu yang kamu ingini. -Ali bin Abi Thalib','Ambillah kebenaran, jika kamu telah mendengarnya. Karena sungguh di atas kebenaran ada cahaya. (HR. Abu Daud)','Sholatlah agar hatimu tenang, Istighfarlah agar kecewamu hilang, Berdoalah agar bahagiamu segera datang.','Surga itu mahal.. Akan tetapi orang miskin tetap mampu membelinya, Karena harganya bukan pada Harta melainkan Taqwa.','Ya Allah... Perbaikilah lisanku, Perbaikilah hatiku, Perbaikilah akhlakku, Perbaikilah hidupku, Aamiin..','Semoga hari ini Allah memudahkan setiap urusan kita, melapangkan hati kita serta meringankan langkah kita, dalam kebaikan kita Aamiin.','Peganglah aku, bacalah aku setiap hari, karena aku akan menjadi penerang didalam kuburmu nanti. #Al-Quran','Kematian..Kamu terlalu banyak bercanda. Hingga sampai kamu lupa, kematian mungkin tidak menunggumu selesai tertawa.','Jangan khawatirkan rizkimu, karena Allah telah menjaminnya untukmu, namun khawatirkanlah amalanmu, karena Allah tidak menjamin surga-Nya untukmu..','Wahai orang-orang yang beriman! Ingatlah kepada Allah, Dengan mengingat (nama-Nya) sebanyak-banyaknya dan bertasbihlah kepada-nya pada waktu pagi dan petang.','Aku sangat ingin menjadi pemburu surga. Namun aku lupa bahwa aku juga buronan neraka.','Karena aku percaya apapun yang menjadi milikku akan tetap menjadi milikku. Sejauh apapun dia (mencoba) pergi. Sejauh apapun usaha orang lain ingin merebutnya dariku. Aku hanya perlu percaya pada Allah bahwa yang menjadi milikku tidak akan pernah menjadi milik orang lain.','Andai hidayah itu seperti buah yang bisa kubeli, maka akan kubeli berkeranjang-keranjang untuk aku bagikan kepada orang-orang yang aku cintai.','Bila kamu tidak melihatku di syurga. Tolong tanya kepada Allah dimana aku, Tolonglah aku ketika itu..','Hanya Allah yang mengerti bagaimana sulitnya menahan sabar tanpa harus bercerita panjang lebar.','Letakkan hpmu lalu ambil air wudhu, shalatlah kamu, Allah menunggu curhatan darimu.','Maafin aku Ya Allah Gara gara aku mencintai dia tapi tidak pasti, sampai aku lupa mencintai mu juga.','Akan ada saatnya setelah salam dari sholatku, tanganmu yang pertama kali kusentuh.','Mungkin maksud Tuhan mempertemukan kamu dengannya adalah, sekedar mengingatkan bahwa tidak semua yang kamu inginkan bisa kamu dapatkan.','Percayalah Seorang wanita yang mencintai Allah. Allah akan berikan lelaki terbaik untuk menjaganya.','Berterimakasihlah kepada tuhan, Yang memberimu hidup dan kehidupan.','Mungkin kamu hanya harus sedikit peka untuk menyadari petunjuk dari Tuhan atas doa-doamu.']
 					const isl = islami[Math.floor(Math.random() * islami.length)]
 					islam = await getBuffer(`https://i.ibb.co/dPnjvD3/IMG-20210127-WA0018.jpg`)
@@ -3302,7 +3114,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					const nasehat =['Jangan pernah mengabaikan apapun yang terjadi, suatu saat akan sadar dan menyesal, ingat tuhan akan selalu memberikan penyesalan terakhir ...','Ingat iya.. Perilaku mu bisa mengubah perasaan seseorang.','Setia itu bukan yang selalu ada, namun saat tak bersama dia tahu hatinya milik siapa.','Kamu perlu belajar satu hal : "Menghargai seriusnya seseorang."','Jangan cari yang sempurna, Sempurnakan saja yang ada.','Ketika seseorang menghina kamu, itu adalah sebuah pujian bahwa selama ini mereka menghabiskan banyak waktu untuk memikirkan kamu, bahkan ketika kamu tidak memikirkan mereka.','Yang terbaik tidak akan hilang. Jika dia hilang maka dia bukanlah yang terbaik.','Percayalah. Suatu hari nanti pasti akan ada seseorang yang bangga memilikimu.','Tidak ada karya yang pernah dibuat oleh seorang seniman yang malas.','Jika seseorang memberimu perhatian jangan pernah mengabaikannya karena suatu saat perhatian sekecil itu kamu rindukan saat kamu kesepian.','Bersyukurlah.. Untuk segala apapun yang engkau miliki saat ini, sebab nikmat itu akan bertambah ketika kamu dapat mensyukuri apa yang telah diberi saat ini. #Buat diri ini jangan banyak mengeluh yah.','Ada perbedaan antara menyerah dan tau kapan kamu merasa cukup dalam berusaha.','Jangan sampai kesenanganmu menyusahkan orang lain. Jangan pula kesusahanmu menyenangkan orang lain.','Semakin banyak kamu memberi, semakin banyak pula yang akan kembali padamu.','Jangan pernah bandingkan akhir kesuksesan orang lain dengan pertengahan prosesmu.','Lakukan apa yang kamu bisa, dengan apa kamu miliki, dimanapun kamu berada.','Hidup memang bukan balapan, tetapi kamu memang perlu untuk terus bergerak maju.','NIKMATI HIDUPMU, LUPAKAN UMURMU.','Sebaik-baiknya permintaan maaf adalah membaiknya tingkah laku.','Belajarlah memahami bahwa tidak semua keinginan bisa terpenuhi, barangkali itu adalah obat yang terbaik untuk mencegah kecewa dan sakit hati.','Kamu akan menemukan yang terbaik, ketika kamu sudah berhenti membanding-bandingkan.','Jangan menilai orang dari masa lalunya karena kita semua sudah tidak hidup disana. Semua orang bisa berubah, biarkan mereka membuktikannya.','Jika dia tidak merasakan kehadiranmu, buat dia merasakan kepergianmu.','Orang pintar mampu memecahkan masalah. Orang bijak mampu menghindarinya.','Bersikap tidak lagi peduli lebih baik dari pada balas dendam.','Tegas akan diri sendiri, buang pikiran negatif dan lakukan yang baik. Kegelisahan hanya milik mereka yang putus asa.','Jangan pikirkan kegagalan kemarin, hari ini sudah lain, sukses pasti diraih selama semangat masih menyengat.','Memaafkanmu bukan berarti memberimu kesempatan sekali lagi.','Berubah menjadi lebih baik adalah pilihan. Tapi, merasa paling baik adalah kesalahan.','Jangan pernah bandingkan dirimu dengan orang lain, tapi bandingkanlah dengan dirimu yang lalu, apakah hari ini sudah lebih baik?','Ketahuilah orang yang paling sering memberi nasihat kepadamu, itulah orang yang paling mencintai kamu.','Jangan pernah berhenti belajar, karena hidup tidak pernah berhenti mengajarkan.','Salah satu tanda dirimu tidak berakhlak adalah main HP ketika ada orang yang berbicara.','Raihlah kesuksesan yang tidak seseorangpun berfikir kamu bisa meraihnya. Buktikan pada mereka kalau kamu bisa!','Kesalahan adalah bukti nyata kalau kamu pernah mencoba. Jangan takut salah. Takutlah untuk melakukan kesalahan-kesalahan yang sama dua kalinya.','Cepat atau lambat bukan masalah. Selama kamu tetap bergerak maju, tidak ada akhirnya kamu akan tetap sampai tidak ada tujuan.','Jika kamu tidak bisa membahagiakan orang lain, Setidaknya janganlah kamu tambah dukanya.','Teruslah berusaha sampai temanmu berkata kepadamu "Sombong iya sekarang."','Ketika kamu melakukan sebuah kesalahan, Akuilah dan jangan ragu untuk meminta maaf. Tidak pernah ada satupun orang dalam sejarah yang mati tersedak karena menelan gengsinya sendiri.','Syukuri yang menyayangimu, Maafkan yang menyakitimu.','Tunjukkan keburukanmu, lalu lihat siapa yang bertahan.','Kamu boleh lelah, tetapi tidak boleh menyerah untuk selamanya.','Jangan pernah lupa bilang "Terima Kasih." Jangan pernah gengsi bilang "Maaf." Jangan pernah jadi terlalu sombong untuk bilang "Tolong."','Masa lalu tidak bisa berubah, diubah, dilupakan, ataupun di hapus. Masa lalu hanya bisa di terima','Kita ini.. sangat pintar menghakimi, Namun bodoh dalam memperbaiki diri.','Tidak peduli seberapa baiknya kamu, Kebaikan tidak akan berarti apa-apa jika kamu memberikan kepada orang yang salah.','Orang sabar selalu menang, Orang tamak selalu rugi, Orang marah selalu kalah, Orang baik selalu diuji.','Carilah tempat dimana kamu bisa dihargai, Bukan dibutuhkan. Karena banyak orang mencarimu hanya saat butuh saja, Hingga lupa bagaimana cara menghargaimu.','Melupakan orang yang melukaimu adalah hadiahmu untuk mereka. Memaafkan orang yang melukaimu adalah hadiahmu untuk dirimu sendiri.','Maafkan orang yang menyakitimu... Bukan karena mereka pantas di maafkan, Tapi karena kamu harus berbahagia.','Tetaplah kuat, Tetaplah positif, Buatlah mereka bertanya-tanya bagaimana kamu masih tetap bisa tersenyum.','Jangan meninggalkan yang pasti demi yang mungkin. Sebab semua kemungkinan, belum tentu menjadi kepastian.','Seseorang pernah berkata padaku, Merelakan bukan berarti menyerah, Tapi tidak bisa dipaksakan.','Ikuti alurnya, Nikmati prosesnya, Tuhan tau kapan kita harus bahagia.','Usia hanyalah angka, Hanya mereka yang terus berusaha yang berhasil.','Jangan pernah meremehkan siapapun! Karena sukses adalah balas dendam Terbaik.','Pria sejati.. Harus menyelesaikan apa yang sudah dimulai.','Jika kau ingin terbang, Kau harus melepaskan hal-hal yang membuatmu berat.','Siapapun yang meremehkan mu hari ini, Suatu saat harus kamu lewati.','Jangan Mencintai terlalu mudah, Jangan Percaya terlalu cepat, Jangan Berhenti terlalu dini, Jangan Berharap terlalu tinggi, Jangan Bicara terlalu banyak.','Jadilah orang baik tapi jangan biarkan orang lain mengambil keuntungan dari mu. Ketahuilah kapan kamu harus bilang tidak.','Sahabat sejati adalah mereka tau semua kelemahan mu, Tapi tidak menggunakan nya untuk menjatuhkan mu.','Ada tiga hal yang harus dimiliki dalam hidup yaitu : Perubahan, Pilihan dan Prinsip.','Orang bodoh mengira dirinya bijak. orang bijak tau dirinya bodoh.','Jatuh cintalah seperlunya.. Kemudian patah hatilah secukupnya. Karena semua ada porsinya, Karena semua ada masanya.','Kita tidak pernah tau jalan hidup seseorang.. Maka ada baiknya jika kita tidak menghakiminya atas keputusan dalam hidupnya.','Jangan pernah menyesal mengenal seseorang dalam hidupmu, Orang baik akan memberi mu Kebahagiaan, Orang jahat akan memberi mu Pengalaman, Bahkan seburuk-buruk manusia akan memberi mu Pelajaran.','Jangan menilai kedewasaan dari usia seseorang, Karena itu bukan jaminan.']
 					const nsh = nasehat[Math.floor(Math.random() * nasehat.length)]
 					nase = await getBuffer(`https://i.ibb.co/bspYPtC/IMG-20210125-WA0018.jpg`)
@@ -3313,7 +3125,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					const cinta =['SABAR MASIH TAHAP PEMBUATAN','MASIH TAHAP PEMBUATAN']
 					const cin = cinta[Math.floor(Math.random() * cinta.length)]
 					cta = await getBuffer(`https://i.ibb.co/vL5x6F7/IMG-20210126-WA0018.jpg`)
@@ -3324,7 +3136,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					const motiv =['Nilai sebuah tindakan terletak dalam usaha menyelesaikan sampai tuntas','Kebaikan adalah seorang yang matanya penuh perhatian, serta tangannya yang penuh manfaat','Hiduplah seperti kamu akan mati besok, dan berbahagialah seperti kamu akan hidup selamanya','Kita tidak usah saling menyalahkan, agar dimasa depan tak ada yang menuntut akan kesalahan','Ketika semua hal tidak sejalan dengan anda, ingatlah bahwa sebuah pesawat terbang melawan angin, bukan dengan mengikuti angin','Belajarlah menikmati apa yang kamu miliki, itu akan membuat hidupmu lebih bernilai','Selalu ada kegelapan yang tergelap sebelum terbitnya fajar','Sahabat itu seperti bintang, tak selalu Nampak tetapi selalu ada dihati','Sibuk bukanlah jaminan karir karena hasil jauh lebih didengar orang','semua kemajuan tidak akan ada tanpa kesalahan, kesalahan adalah bagian dari kemajuan selama diakui dan diperbaiki','Sukses meninggalkan jejak, gagal meninggalkan pelajaran, diam meninggalkan penyesalan','Keraguan bersahabat dekat dengan kegagalan','uang tidak merusak seseorang, keserakahan lah yang merusak manusia','Kepercayaan tidak bisa dibeli, tapi kepercayaan bisa dipelihara','Impian, target, kemauan dan tujuan semuanya sia-sia tanpa tindakan','usia bisa berbohong tapi kedewasaan tidak','Ada yang lebih berharga dari uang dan emas yaitu waktu','Tidak ada yang gagal mereka hanya berhenti terlalu cepat','Terasa sakit selalu hampir tidak ada rasanya setelah apa yang kita perjuangkan tercapai','Seseorang tidak bisa sukses seringkali karena kurangnya keberanian untuk mencobaterasa sakit selalu hampir tidak ada rasanya setelah apa yang kita perjuangkan tercapai','Bicaralah secukupnya, lakukanlah semampunya. Jangan melakukan sebaliknya','Ada saatnya penundaan memberikan keuntungan terutama saat terlalu emosi untuk mengambil keputusan','jangan takut karena masalah yang anda hadapi tidak lebih besar dari jalan keluarnya, Allah siapkan bagi andaAda saatnya penundaan memberikan keuntungan terutama saat terlalu emosi untuk mengambil keputusan','Kadang cara terbaik untuk Memanfaatkan peluang adalah dengan mengatakan tidak pada peluang baru dan fokus mengembangkan apa yang sudah ada di tanganjangan takut karena masalah yang anda hadapi tidak lebih besar dari jalan keluarnya, Allah siapkan bagi andaAda saatnya penundaan memberikan keuntungan terutama saat terlalu emosi untuk mengambil keputusan','atasan hanya memberikan tugas berat pada karyawan terbaik, Allah hanya memberikan ujian pada pada manusia terbaikKadang cara terbaik untuk Memanfaatkan peluang adalah dengan mengatakan tidak pada peluang baru dan fokus mengembangkan apa yang sudah ada di tanganjangan takut karena masalah yang anda hadapi tidak lebih besar dari jalan keluarnya, Allah siapkan bagi andaAda saatnya penundaan memberikan keuntungan terutama saat terlalu emosi untuk mengambil keputusan','berusaha dan gagal Ternyata jauh lebih melegakan daripada pasrah melihat ke kanan dengan tangan terlipat','lewat kesulitan lah manusia belajar, lewatnya kenyamanan lah manusia Terlena','Saat kita merasa hebat kita baru saja kehilangan separuh pangkat kita karena lengah untuk terus belajar','hidup seseorang telah ditebak, tapi Nasib orang malas mudah untuk ditebak','Orang pintar itu biasa orang hebat itu luar biasa tapi orang berani lah pemenangnyahidup seseorang telah ditebak, tapi Nasib orang malas mudah untuk ditebak','Orang hebat membicarakan ide, orang menengah membicarakan pengalaman, orang lemah membicarakan orang lainOrang pintar itu biasa orang hebat itu luar biasa tapi orang berani lah pemenangnyahidup seseorang telah ditebak, tapi Nasib orang malas mudah untuk ditebak','Anda tidak akan mengubah kehidupan sampai anda mengubah Apa yang anda lakukan setiap hari','bertahan saja tidak cukup anda perlu bereaksi terhadap tekanan dan merubah keadaan','masa depan kita tergantung pada apa yang kita lakukan pada saat ini. Maka jangan sia-siakan waktumu sekarang','Nilai manusia ditentukan bukan dari apa yang diperoleh melainkan apa yang telah diberikan','Malas adalah kemenangan saat ini dan kekalahan di masa nanti','sebuah masalah merupakan kesempatan bagi anda untuk mengeluarkan kemampuan terbaik anda','Kematian tidak dapat mengubur perbuatan baik seseorang','Asal percaya dengan sungguh-sungguh apapun keyakinan Anda dapat menjadi kenyataan','Jika ada hari buruk maka pasti akan hari ada hari baik tugas kita adalah terus bergerak majuAsal percaya dengan sungguh-sungguh apapun keyakinan Anda dapat menjadi kenyataan','Mengeluh adalah cara paling buruk dalam menyelesaikan masalah','Tetap Bertahan dan setia pada tujuan saat menghadapi Hambatan adalah kunci kesuksesan','Tidak perlu keahlian khusus untuk mencari musuh, tapi perlu kesetiaan untuk mempertahankan teman','Orang tua bukan hanya punya kekuatan untuk menatap juga untuk mengalah','Keuletan adalah tanda jadi kesuksesan','cepat atau lambat mereka yang menang adalah mereka yang berfikir dan yakin bahwa mereka bisa','Jaga terus Api Harapan Anda seperti menjaga hidup anda sendiri','Saat semua jalan tertutup. Buatlah jalan dan berserahlah kepada Allah','lari dari masalah bukanlah penyelesaian masalah, hadapi dan Belajarlah dari masalah itu','Rezeki itu ditangan Allah yang kita lakukan hanya berusaha semaksimal mungkin dan menyerahkan hasilnya kepada yang kuasa','Sukses dimulai dengan melakukan apa yang harus dilakukan','rasa syukur membuat kita tidak pernah merasa kekurangan','goal hanya sekedar goal kalau kita tidak mempunyai alasan yang kuat Mengapa kita harus mencapainya','Apapun yang terjadi Yakinlah bahwa Allah menginginkan kita akan jadi lebih baik karena Kejadian ini','orang yang paling Bahagia bukanlah orang yang punya hal-hal terbaik tapi orang yang bisa menjadikan hal-hal yang ia punya menjadi yang terbaikApapun yang terjadi Yakinlah bahwa Allah menginginkan kita akan jadi lebih baik karena Kejadian ini','Respon kita terhadap masalah menentukan kualitas berita fokus pada solusi','Semua yang terlalu sedikit dan terlalu banyak tidak akan membawa kebaikan','Tidak semua usaha kita dibayar oleh manusia, tapi Allah akan membayarnya kelak','Tidak ada harga untuk waktu, tetapi waktu sangat berharga','Sukses seringkali datang pada mereka yang berani bertindak dan jarang menghampiri pada mereka yang dikalahkan ketakutan','Katakan bisa pasti bisa dengan penuh keyakinan otak kita akan segera mencari solusi','Orang yang tidak belajar dari kegagalan adalah orang yang gagal sesungguhnya','Segala sesuatu masalah yang menimpa Anda tidak akan pernah melatih kekuatan anda untuk menyelesaikannya','Saat orang lain melakukan impianmu itu berarti mereka belum mampu melihat sejauh anda melihat','Allah tidak pernah terlambat ia akan menunjukkan kuasanya, pada detik terakhir sekalipun','Bukan banyaknya panah yang menentukan kemenangan tapi tajam panah dan tujuannya yang menentukan','Mengeluh itu sisi lain dari pemborosan, pemborosan waktu dan energy','Pikiran negatif sangat berkuasa bila diberi kesempatan, jadi jangan memberinya kesempatan','Cinta akan membuat kita menjadi orang terkaya di dunia, oleh karena itu mulailah mencintai','Cemas yang berlebihan tidak akan mengubah apapun kecuali merusak diri sendiri','Hidup ini sederhana terkadang pikiran manusia yang membuatnya rumit','Siapa yang bisa menerima kelemahannya sesungguhnya baru saja menambah satu kelebihan pada dirinya','Ada saatnya dimana kekalahan rasa manis yaitu Saat anda sudah melakukan yang terbaik','Menabung itu hanya untuk mempertahankan kekayaan, untuk meningkatkannya berinvestasilah','Jika selamanya anda bermain aman, selamanya juga Anda di tempat yang sama','Lari dari masalah akan membuat masalah menjadi lebih besar, menghadapinya akan membuat anda menjadi lebih besar','Yang menyedihkan bukanlah bidikan yang meleset tapi bidikan tanpa target','Hati yang sedang panas menumpulkan logika dinginkan terlebih dahulu sebelum mengambil keputusan','bila ingin hasil yang besar jangan kerjakan hal yang mudah saja','Jangan biarkan impianmu dijajah oleh pendapat orang lain','Mulailah dengan yang kecil, Kerjakanlah dengan cara yang besar adalah dengan cara yang benar','Pengaruh perkataan orang kepada anda 100% adalah atas izin anda sendiri','Bekerjalah dengan ikhlas karena bekerja tanpa paksaan akan memberi hasil maksimal','Suka belajar, suka jualan, hidup hemat, beli aset suka, sedekah adalah 5 resep Makmur','Lebih baik menjadi raja tikus daripada ekor naga','Kerja keras dan kerja cerdas dapat memastikan keberhasilan dan sedekah dapat memudahkannya','Sakit dalam perjuangan itu hanya berlangsung sementara, namun jika anda menyerah rasa sakit itu akan terasa selamanya','Kegagalan terbesar adalah ketika tidak berani mencoba','Langkah pertama yang diperlukan untuk mendapatkan hal yang anda inginkan adalah memutuskan apa yang anda inginkan','Jangan takut menghadapi masa depan, hadapi dan perjuangkanlah','Dahulukan Allah dalam setiap langkah hidupmu maka semuanya akan ditambahkan kepadamu','Kesulitan adalah hujan terbaik untuk menunjukkan kualitas diri yang sebenarnya','Kesalahan dan kegagalan adalah guru terbaik jika kita mau jujur mengakui dan belajar darinya','Diam belum tentu menyelesaikan masalah tapi setidaknya tidak membesarkan masalah','Pemenang sejati selalu memberikan 100% upayanya, bahkan ketika tidak seorang pun melihatnya','Memaafkan orang lain bagai Menyiram air Bara dendam di hati baik untuk kesehatan kita','Jenius adalah 1 inspirasi dan 99 keringat tidak ada yang dapat menggantikan kerja keras','Disiplin memang tidak mudah tapi tanpa kedisiplinan hidup anda akan jauh lebih sulit','Orang yang berhenti belajar akan menjadi pemilik masa lalu, orang yang terus belajar akan menjadi pemilik masa depan','Hujan tidak hanya datang sendirian Ia datang bersama kesejukan, hal buruk tidak datang sendirian ia datang bersama pembelajaran','Menang atau kalah lakukanlah dengan jujur','Lihatlah tantangan sebagai ujian dan lihatlah masalah Sebagai teguran','Lihat ke atas agar terinspirasi lihat ke bawah agar bersyukur','Untuk meraih apa yang benar-benar anda inginkan fokus saja tidak cukup. Anda harus memiliki rasa lapar untuk meraihnya','90% dari kegagalan berasal dari orang-orang yang memiliki kebiasaan membuat alasan-alasan','Allah tidak membenci orang malas, tapi Allah mengizinkan orang rajin mengambil rezeki orang malas','Keajaiban itu nyata bagi mereka yang yakin berserah diri dan bekerja keras','Orang optimis dapat melihat peluang dalam masalah, orang pesimis akan melihat masalah dalam peluangKeajaiban itu nyata bagi mereka yang yakin berserah diri dan bekerja keras','Kualitas pikiran anda menentukan kualitas kehidupan anda','Bersyukur adalah cara ampuh untuk meraih energi yang dahsyat, Sudahkah anda bersyukur hari ini','Jangan mengharapkan sesuatu yang luar biasa jika anda hanya mau melakukan hal yang biasa saja','Kebahagiaan dimulai dengan ketulusan','1000 perkataan dan pengetahuan tidak berarti tanpa adanya satu tindakan yang nyata','Tangkap peluang, kerjakan, selesaikan','Ketika situasi di sekolah Anda tidak menyenangkan. Di saat itulah sebenarnya karakter anda sedang dibentuk','Seorang pemberani bukan orang yang tidak mempunyai rasa takut. Tapi orang yang mampu berjalan diatas rasa takutnya','dalam takut yang tampak adalah hambatan, dalam yakin yang tampak adalah kesempatan','Tidak ada kata gagal yang ada hanya sukses atau perlu belajar lagi sampai berhasil','Menjadi tua itu pasti menjadi dewasa itu pilihan','Kehidupan yang besar dimulai dari mimpi yang besar','Tragedi dalam kehidupan ini bukanlah yang berakhir terlalu cepat, tetapi kita menunggu terlalu lama untuk memulainya','Takut akan kegagalan seharusnya tidak menjadi alasan untuk tidak mencoba sesuatu','Hari ini adalah hari pertama dalam hidup anda. Buatlah hari ini menjadi hari yang terbaik sepanjang hidup anda dan semoga hari esok matahari bersinar dengan terang','Saya berpikir bahwa ada suatu hal yang lebih penting daripada sekedar percaya, tindakan Dunia ini penuh dengan pemimpi ,tidaklah banyak orang yang berani maju ke depan dan Mulai mengambil langkah pasti untuk mewujudkan visi mereka','Anda tidak dapat mengubah masa lalu anda dan janganlah terlalu khawatir dengan hari esok .Hari ini adalah hari yang dapat mengubah masa depan Anda','Allah, aku tahu bahwa saat aku kehilangan sesuatu engkau sedang mempersiapkan hal yang lebih baik untukkuAnda tidak dapat mengubah masa lalu anda dan janganlah terlalu khawatir dengan hari esok .Hari ini adalah hari yang dapat mengubah masa depan Anda','Pergilah sejauh mungkin dan ketika anda tiba di sana anda akan melihat lebih jauh lagiAllah, aku tahu bahwa saat aku kehilangan sesuatu engkau sedang mempersiapkan hal yang lebih baik untukkuAnda tidak dapat mengubah masa lalu anda dan janganlah terlalu khawatir dengan hari esok .Hari ini adalah hari yang dapat mengubah masa depan Anda','Menangis dapat melepaskan tambahan hormon stress, itulah mengapa kita sehabis menangis merasa lebih baikPergilah sejauh mungkin dan ketika anda tiba di sana anda akan melihat lebih jauh lagiAllah, aku tahu bahwa saat aku kehilangan sesuatu engkau sedang mempersiapkan hal yang lebih baik untukkuAnda tidak dapat mengubah masa lalu anda dan janganlah terlalu khawatir dengan hari esok .Hari ini adalah hari yang dapat mengubah masa depan Anda','Ketika cinta itu dipertahankan kamu akan tau siapa yang lebih menghargai tentang sebuah hubungan','Dalam hidup ini banyak orang tahu apa yang harus dilakukan, tetapi hanya sedikit yang melakukan apa yang ia ketahui. Mengetahui tidaklah cukup, Anda harus mengambil tindakan','Berilah perhatian lebih ke orang yang kamu sayangi, itu yang mereka butuhkan','Satu ons tindakan sama berharganya dengan satu ton teori','Kita mungkin terpisah sejak lama ketika tak mampu belajar untuk lebih dewasa','Sayangilah dia walau tidak sesempurna seperti yang kau inginkan','Kecantikan akan mengundang perhatian sikap santun memikat Kalbu','Mengetahui tidaklah cukup kita harus melakukannya, keinginan tak cukup hanya dengan berangan kita harus melakukannya','Kesalahan adalah bukti bahwa kamu sedang mencoba','Betapapun jauhnya air mengalir ia takkan pernah lupa hulunya','Lebih baik sendiri daripada bersama dengan orang yang salahBetapapun jauhnya air mengalir ia takkan pernah lupa hulunya','Lakukan sesuatu hari ini yang akan membuat dirimu berterima kasih di hari-hari mendatang','Waktu yang memutuskan Dengan siapa kamu akan berjumpa','Hati yang memutuskan siapa yang kamu inginkan dalam hidup ini','Dengan sikap yang akan menentukan siapa yang akan bertahan dalam hidupmu','Menjadi dewasa dan bijak diawali dengan menjadi muda dan bodoh','Lakukanlah apa yang paling kamu takutkan dalam hidupmu','Bekerjalah seolah kamu tak butuh uang, Cintailah seolah Kamu takkan Tersakiti dan menarilah seakan tak ada yang melihatmu','Jika hari ini sudah sempurna maka Apalah arti hari esok','Bintang pun tak kan bersinar tanpa kegelapan','Suatu saat aku akan menjadi tempat yang akan selalu kau rindu','Guru terbaik kamu adalah kesalahan terakhir yang kamu lakukan','Diam adalah respon terbaik untuk orang bodoh','Jangan pernah membuat keputusan yang permanen untuk perasaan yang sementara','Jika Allah yang menjadi alasan anda untuk hidup maka takkan pernah ada alasan untuk menyerah','Kegagalan ada bukan untuk ditakuti tetapi untuk dipelajari','Anda saat ini adalah hasil dari pengalaman anda','Keberuntungan adalah saat kesempatan datang, anda telah matang dengan segala persiapan','Jangan Menunggu hari yang terbaik untuk melangkah karena setiap hari sangatlah berharga','Keputusan yang baik diperoleh dari pengalaman, dan pengalaman didapat dari keputusan yang buruk','Setiap waktu yang anda lewati dengan sia-sia hanya menjauhkan anda dan semakin jauh dari kata sukses','Realitas kehidupan Anda adalah deskripsi dari jiwa dan pikiran anda','Berani mengambil keputusan maka anda telah melangkah 10 kali lebih cepat untuk sukses','Allah masih mencintai anda jika masih banyak cobaan dan tantangan hidup yang datang menghampiri anda. Allah percaya bahwa anda mampu melaluinya, maka jagalah kepercayaan itu','Ketika orang mengatakan anda sudah berubah sebenarnya itu hanya karena anda berhenti melakukan apa yang mereka ingin anda lakukan','Jangan menukar apa yang sangat anda inginkan untuk apa yang Anda ingin untuk saat ini','Orang-orang yang mengikuti keramaian biasanya tersesat di dalamnya','Orang tua saya bekerja terlalu keras untuk saya bukan supaya saya tidak hanya menjadi orang biasa tetapi menjadi orang luar biasa','Anda menghalangi impian anda ketika anda mengizinkan ketakutan Anda tumbuh lebih besar dari keyakinan anda','Sang juara percaya kepada dirinya sendiri bahkan ketika orang lain tidak percaya','Hanya mereka yang berani mengambil resiko yang jauh pasti dapat menemukan Seberapa jauh seseorang dapat pergi','Tunjukkan teman Anda, saya akan menunjukkan masa depan Anda','Beberapa orang ingin sesuatu terjadi, beberapa orang berharap itu akan terjadi, yang lain mewujudkannya jadi kenyataan','Jika anda menghabiskan waktu untuk mencoba menjadi baik dalam segala hal, Anda tidak akan pernah menjadi hebat dalam apapun','Sebuah perjalanan ribuan mil dimulai dari langkah kecil','Apa yang akan Anda kerjakan, Ketika anda tahu anda tidak mungkin gagal','Ketika kita memiliki satu sama lain, kita Memiliki segalanya','Kebesaran sebenarnya dapat ditemukan dalam hal hal kecil yang terkadang kita lewatkan','Bekerja keraslah, Bermimpilah lebih besar dan jadilah yang terbaik','Apa yang kita pikirkan menentukan apa yang akan terjadi pada kita. Jadi jika kita ingin mengubah hidup kita, kita perlu sedikit mengubah pikiran kita.','Seseorang yang berani membuang satu jam waktunya tidak mengetahui nilai dari kehidupan.','Saya memiliki filosofi yang sederhana: isi apa yang kosong, kosongkan apa yang terlalu penuh.','Hidup adalah cermin dan akan merefleksikan kembali kepada para pemikir mengenai apa yang mereka pikirkan.','Anda di sini hanya untuk persinggahan yang singkat. Jangan terburu, jangan khawatir. Yakinlah bahwa Anda menghirup wangi bunga sepanjang perjalanan.Hidup adalah cermin dan akan merefleksikan kembali kepada para pemikir mengenai apa yang mereka pikirkan.','Hidup adalah serangkaian perubahan yang alami dan spontan. Jangan tolak mereka karena itu hanya membuat penyesalan dan duka. Biarkan realita menjadi realita. Biarkan sesuatu mengalir dengan alami ke manapun mereka suka.','Hidup yang baik adalah hidup yang diinspirasi oleh cinta dan dipandu oleh ilmu pengetahuan.','Kenyataannya, Anda tidak tahu apa yang akan terjadi besok. Hidup adalah pengendaraan yang gila dan tidak ada yang menjaminnya.','Hidup adalah mimpi bagi mereka yang bijaksana, permainan bagi mereka yang bodoh, komedi bagi mereka yang kaya, dan tragedi bagi mereka yang miskin','Hidup itu bukan soal menemukan diri Anda sendiri, hidup itu membuat diri Anda sendiri.','Hal yang paling penting adalah menikmati hidupmu, menjadi bahagia, apapun yang terjadi.','Hidup itu sederhana, kita yang membuatnya sulit.']
 					const vasi = motiv[Math.floor(Math.random() * motiv.length)]
 					vass = await getBuffer(`https://i.ibb.co/346nsHC/56806462-399407660892553-4745814299438481408-o.jpg`)
@@ -3335,7 +3147,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 	                                const cangti = ['https://i.ibb.co/1T1DCz7/cewek-thailand-20200325-007-non-fotografer-kly.jpg','https://i.ibb.co/FsJ6jjs/kucing2.jpg','https://i.ibb.co/vvkdS7n/kucing3.jpg','https://i.ibb.co/1QHWxts/kucing4.jpg','https://i.ibb.co/JQmRz4n/kucing5.jpg','https://i.ibb.co/tBwrFkG/kucing6.jpg','https://i.ibb.co/dp0YhYm/kucing7.jpg','https://i.ibb.co/R03smZT/kucing8.jpg','https://i.ibb.co/17tw0dp/kucing9.jpg','https://i.ibb.co/7XdGGqc/kucing10.jpg','https://i.ibb.co/XL9PZxg/kucing11.jpg','https://i.ibb.co/gyjvXWN/kucing12.jpg','https://i.ibb.co/R4gg4wH/kucing13.jpg','https://i.ibb.co/PmLYtFm/kucing14.jpg','https://i.ibb.co/XbSDh47/kucing15.jpg','https://i.ibb.co/kSXNJzt/kucing16.jpg']
                                         let cangtip = cangti[Math.floor(Math.random() * cangti.length)]
                                         itsmeiky.sendMessage(from, cangtip, image, {quote: iky})
@@ -3345,7 +3157,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 	                                const kucings = ['https://i.ibb.co/vvmp82w/kucing1.jpg']
                                         let kucigz = kucings[Math.floor(Math.random() * kucings.length)]
                                         itsmeiky.sendMessage(from, kucigz, image, {quote: iky})
@@ -3355,7 +3167,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					if (args.length < 1) return reply('Urlnya mana kak?')
 					teks = body.slice(7)
 					reply(ind.wait())
@@ -3368,7 +3180,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
                                         gatauda = body.slice(6)
 					reply(ind.wait())
                                         anu = await fetchJson(`https://tobz-api.herokuapp.com/api/randomloli?apikey=BotWeA`, {method: 'get'})
@@ -3380,7 +3192,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					gatauda = body.slice(7)
 					reply(ind.wait())
 					data = await fetchJson('https://waifu.pics/api/sfw/neko')
@@ -3392,7 +3204,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					gatauda = body.slice(7)
 					reply(ind.wait())
 					data = await fetchJson('https://akaneko-api.herokuapp.com/api/loli')
@@ -3404,9 +3216,9 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-					if (!isPremium) return reply('Desculpe, você não é um usuário premium!')
+					if (!isPremium) return reply('Maaf kamu bukan user premium!')
 					if (!isNsfw) return reply(ind.nsfwoff())
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					gatauda = body.slice(9)
 					reply(ind.wait())
 					data = await fetchJson('https://akaneko-api.herokuapp.com/api/hentai')
@@ -3418,8 +3230,8 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-					if (!isPremium) return reply('Desculpe, você não é um usuário premium!')
-				if (isBanned) return reply('Desculpe você foi pego!')
+					if (!isPremium) return reply('Maaf kamu bukan user premium!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					await limitAdd(sender)
 					ranp = getRandom('.gif')
 					rano = getRandom('.webp')
@@ -3437,8 +3249,8 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-					if (!isPremium) return reply('Desculpe, você não é um usuário premium!')
-				if (isBanned) return reply('Desculpe você foi pego!')
+					if (!isPremium) return reply('Maaf kamu bukan user premium!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					await limitAdd(sender)
 					ranp = getRandom('.gif')
 					rano = getRandom('.webp')
@@ -3456,7 +3268,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					anu = await fetchJson(`https://api.fdci.se/rep.php?gambar=pokemon`, {method: 'get'})
 					reply(ind.wait())
 					var n = JSON.parse(JSON.stringify(anu));
@@ -3469,7 +3281,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					anu = await fetchJson(`https://api.fdci.se/rep.php?gambar=anjing`, {method: 'get'})
 					reply(ind.wait())
 					var n = JSON.parse(JSON.stringify(anu));
@@ -3483,7 +3295,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					anu = await fetchJson(`https://api.fdci.se/rep.php?gambar=kucing`, {method: 'get'})
 					reply(ind.wait())
 					var n = JSON.parse(JSON.stringify(anu));
@@ -3496,7 +3308,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					data = await fetchJson(`https://api.fdci.se/rep.php?gambar=doraemon`, {method: 'get'})
 					reply(ind.wait())
 					n = JSON.parse(JSON.stringify(data));
@@ -3509,7 +3321,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					itsmeiky.updatePresence(from, Presence.composing) 
 					data = await fetchJson(`https://api.fdci.se/rep.php?gambar=aesthetic-hamsters`, {method: 'get'})
 					reply(ind.wait())
@@ -3523,7 +3335,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					itsmeiky.updatePresence(from, Presence.composing) 
 					data = await fetchJson(`https://api.fdci.se/rep.php?gambar=aesthetic-rabbit`, {method: 'get'})
 					reply(ind.wait())
@@ -3537,7 +3349,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					itsmeiky.updatePresence(from, Presence.composing) 
 					data = await fetchJson(`https://api.fdci.se/rep.php?gambar=cars`, {method: 'get'})
 					reply(ind.wait())
@@ -3551,7 +3363,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					itsmeiky.updatePresence(from, Presence.composing) 
 					data = await fetchJson(`https://api.fdci.se/rep.php?gambar=motorcycle`, {method: 'get'})
 					reply(ind.wait())
@@ -3565,7 +3377,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					itsmeiky.updatePresence(from, Presence.composing) 
 					data = await fetchJson(`https://api.fdci.se/rep.php?gambar=bicycle`, {method: 'get'})
 					reply(ind.wait())
@@ -3579,7 +3391,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					itsmeiky.updatePresence(from, Presence.composing) 
 					data = await fetchJson(`https://api.fdci.se/rep.php?gambar=aesthetic-blue-sky`, {method: 'get'})
 					reply(ind.wait())
@@ -3593,7 +3405,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					itsmeiky.updatePresence(from, Presence.composing) 
 					data = await fetchJson(`https://api.fdci.se/rep.php?gambar=aesthetic-flower`, {method: 'get'})
 					reply(ind.wait())
@@ -3607,7 +3419,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					itsmeiky.updatePresence(from, Presence.composing) 
 					data = await fetchJson(`https://api.fdci.se/rep.php?gambar=aesthetic%20ice%20cream`, {method: 'get'})
 					reply(ind.wait())
@@ -3621,7 +3433,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					itsmeiky.updatePresence(from, Presence.composing) 
 					data = await fetchJson(`https://api.fdci.se/rep.php?gambar=aesthetic%20pemandangan%20alam`, {method: 'get'})
 					reply(ind.wait())
@@ -3635,7 +3447,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					itsmeiky.updatePresence(from, Presence.composing) 
 					data = await fetchJson(`https://api.fdci.se/rep.php?gambar=osakana`, {method: 'get'})
 					reply(ind.wait())
@@ -3649,7 +3461,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					itsmeiky.updatePresence(from, Presence.composing) 
 					data = await fetchJson(`https://api.fdci.se/rep.php?gambar=menhera-chan`, {method: 'get'})
 					reply(ind.wait())
@@ -3663,7 +3475,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					itsmeiky.updatePresence(from, Presence.composing) 
 					data = await fetchJson(`https://api.fdci.se/rep.php?gambar=naruto%20uzumaki%20wallpaper%20hd`, {method: 'get'})
 					reply(ind.wait())
@@ -3677,7 +3489,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					itsmeiky.updatePresence(from, Presence.composing) 
 					data = await fetchJson(`https://api.fdci.se/rep.php?gambar=anime-girl`, {method: 'get'})
 					reply(ind.wait())
@@ -3691,7 +3503,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					itsmeiky.updatePresence(from, Presence.composing) 
 					data = await fetchJson(`https://api.fdci.se/rep.php?gambar=anime-boy`, {method: 'get'})
 					reply(ind.wait())
@@ -3705,7 +3517,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					itsmeiky.updatePresence(from, Presence.composing) 
 					data = await fetchJson(`https://api.fdci.se/rep.php?gambar=quotes%20indonesia`, {method: 'get'})
 					reply(ind.wait())
@@ -3719,7 +3531,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					itsmeiky.updatePresence(from, Presence.composing) 
 					data = await fetchJson(`https://api.fdci.se/rep.php?gambar=quotes`, {method: 'get'})
 					reply(ind.wait())
@@ -3733,7 +3545,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					itsmeiky.updatePresence(from, Presence.composing) 
 					data = await fetchJson(`https://api.fdci.se/rep.php?gambar=katakata`, {method: 'get'})
 					reply(ind.wait())
@@ -3747,7 +3559,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					itsmeiky.updatePresence(from, Presence.composing) 
 					data = await fetchJson(`https://api.fdci.se/rep.php?gambar=kata%20motivasi`, {method: 'get'})
 					reply(ind.wait())
@@ -3761,7 +3573,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					itsmeiky.updatePresence(from, Presence.composing) 
 					data = await fetchJson(`https://api.fdci.se/rep.php?gambar=kata%20kata%20bijak%20kehidupan`, {method: 'get'})
 					reply(ind.wait())
@@ -3775,7 +3587,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					itsmeiky.updatePresence(from, Presence.composing) 
 					data = await fetchJson(`https://api.fdci.se/rep.php?gambar=quotes%20islami`, {method: 'get'})
 					reply(ind.wait())
@@ -3789,7 +3601,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					gatauda = body.slice(12)
 					anu = await fetchJson(`https://docs-jojo.herokuapp.com/api/tiktokpp?user=${gatauda}` , {method: 'get'})
 					buffer = await getBuffer(anu.result)
@@ -3800,7 +3612,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					anu = await fetchJson(`https://mnazria.herokuapp.com/api/maps?search=${body.slice(5)}`, {method: 'get'})
 					buffer = await getBuffer(anu.gambar)
 					itsmeiky.sendMessage(from, buffer, image, {quoted: iky, caption: `${body.slice(5)}`})
@@ -3810,7 +3622,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					if (args.length < 1) return reply('Apa yang mau dicari kak?')
 					anu = await fetchJson(`https://mnazria.herokuapp.com/api/kbbi?search=${body.slice(6)}`, {method: 'get'})
 					reply('Menurut Kbbi:\n\n'+anu.result)
@@ -3820,7 +3632,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					if (args.length < 1) return reply('Apa yang mau dicari kak?')
 					anu = await fetchJson(`https://mnazria.herokuapp.com/api/arti?nama=${body.slice(10)}`, {method: 'get'})
 					reply('Menurut nama:\n\n'+anu.result)
@@ -3830,7 +3642,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					anu = await fetchJson(`https://api.banghasan.com/quran/format/json/acak`, {method: 'get'})
 					quran = `${anu.acak.ar.teks}\n\n${anu.acak.id.teks}\nQ.S ${anu.surat.nama} ayat ${anu.acak.id.ayat}`
 					itsmeiky.sendMessage(from, quran, text, {quoted: iky})
@@ -3840,7 +3652,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					anu = await fetchJson(`https://tobz-api.herokuapp.com/api/jadwalshalat?q=${body.slice(14)}&apikey=BotWeA`, {method: 'get'})
 					sholat = `Ashar : ${anu.result.ashar}\nDzuhur : ${anu.result.dzuhur}\nMagrib : ${anu.result.maghrib}\nIsha : ${anu.result.isha}\nSubuh : ${anu.result.subuh}`
 					itsmeiky.sendMessage(from, sholat, text, {quoted: iky})
@@ -3850,7 +3662,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				         // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 				        if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					itsmeiky.updatePresence(from, Presence.composing) 
 					data = await fetchJson(`https://docs-jojo.herokuapp.com/api/neonime_lastest`, {method: 'get'})
 					teks = '################\n'
@@ -3864,7 +3676,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					if ((isMedia && !iky.message.videoMessage || isQuotedImage) && args.length == 0) {
 						const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(iky).replace('quotedM','m')).message.extendedTextMessage.contextInfo : iky
 						const media = await itsmeiky.downloadAndSaveMediaMessage(encmedia)
@@ -3892,7 +3704,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 				    if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					await limitAdd(sender)
 					if ((isMedia && !iky.message.videoMessage || isQuotedImage) && args.length == 0) {
 						const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(iky).replace('quotedM','m')).message.extendedTextMessage.contextInfo : iky
@@ -3953,8 +3765,8 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (!isPremium) return reply('Desculpe, você não é um usuário premium!')
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (!isPremium) return reply('Maaf kamu bukan user premium!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 				if (args.length < 1) return itsmeiky.sendMessage(from, 'Diperlukan kode bahasa kak!!', text, {quoted: iky})
 					const gtts = require('./lib/gtts')(args[0])
 					if (args.length < 2) return itsmeiky.sendMessage(from, 'Mana teks yang mau di jadiin suara? suara setan kah?', text, {quoted: iky})
@@ -4012,7 +3824,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 				 // Fix Bug By ItsmeikyXSec404				
                  if (!isRegistered) return reply( ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Desculpe você foi pego!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 				try {
 						if (args.length < 1) return itsmeiky.sendMessage(from, '*Username mana kak?', text, {quoted: iky})
 						let { user, stats } = await tiktod.getUserProfileInfo(args[0])
@@ -4027,7 +3839,6 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					await limitAdd(sender)
 					break
                  case 'linkgc':
-                 case 'linkgp':
 				if (!isGroup) return reply(ind.groupo())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
 				if (!isBotGroupAdmins) return reply(ind.badmin())
@@ -4047,23 +3858,22 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					break
 		case 'hargaprem':
 		case 'hargapremium':
-		case 'ganharpremium':
-					itsmeiky.sendMessage(from, 'Nível 100 = Grátis 3 dias (premium)\n5$ = 7dias (premium)\n10$ = mês (premium)',MessageType.text, { quoted: iky} )
+					itsmeiky.sendMessage(from, 'Level 100 = Free 3 day (premium)\n10k = 7day (premium)\n25k = bulan (premium)',MessageType.text, { quoted: iky} )
 					break
-		case 'comprarpremium':
-					itsmeiky.sendMessage(from, 'Quer comprar premium?\nPor favor, entre em contato conosco : wa.me/553398091185',MessageType.text, { quoted: iky} )
+		case 'buypremium':
+					itsmeiky.sendMessage(from, 'Ingin membeli premium?\nHarap hubungi kami : wa.me/553398091185',MessageType.text, { quoted: iky} )
 					break
 		case 'buypremunlimited':
-					if (!isPremium) return reply('Desculpe, você não é um usuário premium!')
-					itsmeiky.sendMessage(from, 'Parabéns pela sua assinatura para sempre 🎉',MessageType.text, { quoted: iky} )
+					if (!isPremium) return reply('Maaf kamu bukan user premium!')
+					itsmeiky.sendMessage(from, 'Selamat kamu sudah berlangganan selamanya 🎉',MessageType.text, { quoted: iky} )
 					break
 		case 'buyprem30day':
-					if (!isPremium) return reply('Desculpe, você não é um usuário premium!')
-					itsmeiky.sendMessage(from, 'Parabéns, você se inscreveu por 30 dias',MessageType.text, { quoted: iky} )
+					if (!isPremium) return reply('Maaf kamu bukan user premium!')
+					itsmeiky.sendMessage(from, 'Selamat kamu sudah berlangganan 30 hari',MessageType.text, { quoted: iky} )
 					break
 		case 'buyprem7day':
-					if (!isPremium) return reply('Desculpe, você não é um usuário premium!')
-					itsmeiky.sendMessage(from, 'Parabéns, você se inscreveu por 7 dias',MessageType.text, { quoted: iky} )
+					if (!isPremium) return reply('Maaf kamu bukan user premium!')
+					itsmeiky.sendMessage(from, 'Selamat kamu sudah berlangganan 7 hari',MessageType.text, { quoted: iky} )
 					break
 		case 'test':
 					itsmeiky.sendMessage(from, 'Active',MessageType.text, { quoted: iky} )
@@ -4075,19 +3885,19 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					itsmeiky.sendMessage(from, 'Waalaikumusalam',MessageType.text, { quoted: iky} )
 					break
 		case 'kontol':
-					itsmeiky.sendMessage(from, 'Gunakan bahasa yang benar\nAnda akan kami banned!\nHubungi kami : wa.me/6281281872699',MessageType.text, { quoted: iky} )
+					itsmeiky.sendMessage(from, 'Gunakan bahasa yang benar\nAnda akan kami banned!\nHubungi kami : wa.me/553398091185',MessageType.text, { quoted: iky} )
 					break
 		case 'meiky':
-					itsmeiky.sendMessage(from, 'Gunakan bahasa yang benar\nAnda akan kami banned!\nHubungi kami : wa.me/6281281872699',MessageType.text, { quoted: iky} )
+					itsmeiky.sendMessage(from, 'Gunakan bahasa yang benar\nAnda akan kami banned!\nHubungi kami : wa.me/553398091185',MessageType.text, { quoted: iky} )
 					break
 		case 'jembut':
-					itsmeiky.sendMessage(from, 'Gunakan bahasa yang benar\nAnda akan kami banned!\nHubungi kami : wa.me/6281281872699',MessageType.text, { quoted: iky} )
+					itsmeiky.sendMessage(from, 'Gunakan bahasa yang benar\nAnda akan kami banned!\nHubungi kami : wa.me/553398091185',MessageType.text, { quoted: iky} )
 					break
 		case 'ngentod':
-					itsmeiky.sendMessage(from, 'Gunakan bahasa yang benar\nAnda akan kami banned!\nHubungi kami : wa.me/6281281872699',MessageType.text, { quoted: iky} )
+					itsmeiky.sendMessage(from, 'Gunakan bahasa yang benar\nAnda akan kami banned!\nHubungi kami : wa.me/553398091185',MessageType.text, { quoted: iky} )
 					break
 		case 'kntl':
-					itsmeiky.sendMessage(from, 'Gunakan bahasa yang benar\nAnda akan kami banned!\nHubungi kami : wa.me/6281281872699',MessageType.text, { quoted: iky} )
+					itsmeiky.sendMessage(from, 'Gunakan bahasa yang benar\nAnda akan kami banned!\nHubungi kami : wa.me/553398091185',MessageType.text, { quoted: iky} )
 					break
 
 		case 'wa.me':
@@ -4097,7 +3907,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
   					if (isLimit(sender)) return reply(ind.limitend(pusname))
   					itsmeiky.updatePresence(from, Presence.composing) 
   					options = {
-  					text: `「 *WHATSAPP* 」\n\n_Solicitado por_ : *@${sender.split("@s.whatsapp.net")[0]}\n\nSeu link do WhatsApp : *https://wa.me/${sender.split("@s.whatsapp.net")[0]}*\n*Or ( / )*\n*https://api.whatsapp.com/send?phone=${sender.split("@")[0]}*`,
+  					text: `「 *SELF WHATSAPP* 」\n\n_Request by_ : *@${sender.split("@s.whatsapp.net")[0]}\n\nYour link WhatsApp : *https://wa.me/${sender.split("@s.whatsapp.net")[0]}*\n*Or ( / )*\n*https://api.whatsapp.com/send?phone=${sender.split("@")[0]}*`,
   					contextInfo: { mentionedJid: [sender] }
   					}
   					itsmeiky.sendMessage(from, options, text, { quoted: iky } )
@@ -4107,7 +3917,6 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					await limitAdd(sender)
   					break
 		case 'tagall':
-		case 'marcar':
 					if (!isGroup) return reply(ind.groupo())
 					if (!isGroupAdmins) return reply(ind.admin())
 					members_id = []
@@ -4229,15 +4038,14 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					break
 		case 'grup':
 		case 'group':
-		case 'grupo':
 					if (!isGroup) return reply(ind.groupo())
 					if (!isGroupAdmins) return reply(ind.admin())
 					if (!isBotGroupAdmins) return reply(ind.badmin())
-					if (args[0] === 'Abrir') {
-					    reply(`*BARDENA LIBERADA, ADM ABRIU GRUPO*`)
+					if (args[0] === 'buka') {
+					    reply(`*BERHASIL MEMBUKA GROUP*`)
 						itsmeiky.groupSettingChange(from, GroupSettingChange.messageSend, false)
-					} else if (args[0] === 'fechar') {
-						reply(`*ACABOU BARDENA, ADM FDP FECHOU GRUPO*`)
+					} else if (args[0] === 'tutup') {
+						reply(`*BERHASIL MENUTUP GROUP*`)
 						itsmeiky.groupSettingChange(from, GroupSettingChange.messageSend, true)
 					}
 					break      
@@ -4245,28 +4053,24 @@ itsmeiky.on('group-participants-update', async (anu) => {
             case 'owner':
             case 'creator':
             case 'developer':
-            case 'dono':
                   itsmeiky.sendMessage(from, {displayname: "Jeff", vcard: vcard}, MessageType.contact, { quoted: iky})
-                  itsmeiky.sendMessage(from, 'Esse é o meu número de dono >_<, Famoso Comedor De Casada',MessageType.text, { quoted: iky} )
+                  itsmeiky.sendMessage(from, 'Tuh nomer owner ku >_<, jangan spam atau ku block kamu',MessageType.text, { quoted: iky} )
 					break    
-           case 'setname':
-           case.'mudarnome':
+           /*case 'setname':
 					if (!isGroup) return reply(ind.groupo())
 					if (!isGroupAdmins) return reply(ind.admin())
 					if (!isBotGroupAdmins) return reply(ind.badmin())
 					itsmeiky.groupUpdateSubject(from, `${body.slice(9)}`)
 					itsmeiky.sendMessage(from, 'Succes, Ganti Nama Grup', text, {quoted: iky})
-					break
-                case 'setdesc':
-                case 'mudardesc':
+					break*/
+                /*case 'setdesc':
 					if (!isGroup) return reply(ind.groupo())
 					if (!isGroupAdmins) return reply(ind.admin())
 					if (!isBotGroupAdmins) return reply(ind.badmin())
 					itsmeiky.groupUpdateDescription(from, `${body.slice(9)}`)
 					itsmeiky.sendMessage(from, 'Succes, Ganti Deskripsi Grup', text, {quoted: iky})
-					break
-           case 'demote':
-           case 'rebaixar':
+					break*/
+           /*case 'demote':
 					if (!isGroup) return reply(ind.groupo())
 					if (!isGroupAdmins) return reply(ind.admin())
 					if (!isBotGroupAdmins) return reply(ind.badmin())
@@ -4275,18 +4079,17 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					if (mentioned.length > 1) {
 						teks = ''
 						for (let _ of mentioned) {
-							teks += `*Comando aceito, rebaixar para membro comum do grupo* :\n`
+							teks += `*Perintah diterima, menurunkan jadi admin group* :\n`
 							teks += `@_.split('@')[0]`
 						}
 						mentions(teks, mentioned, true)
 						itsmeiky.groupDemoteAdmin(from, mentioned)
 					} else {
-						mentions(`*Pedidos aceitos, Rebaixado* @${mentioned[0].split('@')[0]} *seja um membro do grupo*`, mentioned, true)
+						mentions(`*Perintah diterima, menurunkan* @${mentioned[0].split('@')[0]} *jadi admin group*`, mentioned, true)
 						itsmeiky.groupDemoteAdmin(from, mentioned)
 					}
-					break
-			case 'promote':
-			case 'promover':
+					break*/
+			/*case 'promote':
 					if (!isGroup) return reply(ind.groupo())
 					if (!isGroupAdmins) return reply(ind.admin())
 					if (!isBotGroupAdmins) return reply(ind.badmin())
@@ -4295,37 +4098,37 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					if (mentioned.length > 1) {
 						teks = ''
 						for (let _ of mentioned) {
-							teks += `*Parabéns* 🥳 *Você é promovido a administrador de grupo* 🎉 :\n`
+							teks += `*Selamat* 🥳 *Anda naik menjadi admin group* 🎉 :\n`
 							teks += `@_.split('@')[0]`
 						}
 						mentions(teks, mentioned, true)
 						itsmeiky.groupMakeAdmin(from, mentioned)
 					} else {
-						mentions(`*Parabéns* 🥳 @${mentioned[0].split('@')[0]} *Você é promovido a administrador de grupo* 🎉`, mentioned, true)
+						mentions(`*Selamat* 🥳 @${mentioned[0].split('@')[0]} *Anda naik menjadi admin group* 🎉`, mentioned, true)
 						itsmeiky.groupMakeAdmin(from, mentioned)
 					}
-					break
+					break*/
 		case 'kick':
 		case 'banir':
 					if (!isGroup) return reply(ind.groupo())
 					if (!isGroupAdmins) return reply(ind.admin())
 					if (!isBotGroupAdmins) return reply(ind.badmin())
-					if (iky.message.extendedTextMessage === undefined || iky.message.extendedTextMessage === null) return reply('Marca O Meliante!')
+					if (iky.message.extendedTextMessage === undefined || iky.message.extendedTextMessage === null) return reply('𝗧𝗮𝗴 𝘁𝗮𝗿𝗴𝗲𝘁 ??𝗮𝗻𝗴 𝗶𝗻𝗴𝗶𝗻 𝗱𝗶 𝘁𝗲𝗻𝗱𝗮𝗻𝗴!')
 					mentioned = iky.message.extendedTextMessage.contextInfo.mentionedJid
 					if (mentioned.length > 1) {
 						teks = ''
 						for (let _ of mentioned) {
-							teks += `*Safado(a) Banido Com Sucesso, Mais Alguém?* 🤭 :\n`
+							teks += `*Asek jatah kick, otw kick* 🤭 :\n`
 							teks += `@_.split('@')[0]`
 						}
 						mentions(teks, mentioned, true)
 						itsmeiky.groupRemove(from, mentioned)
 					} else {
-						mentions(`*Safado(a) Banido Com Sucesso, Mais Alguém* @${mentioned[0].split('@')[0]} 🤭`, mentioned, true)
+						mentions(`*Asek jatah kick, otw kick* @${mentioned[0].split('@')[0]} 🤭`, mentioned, true)
 						itsmeiky.groupRemove(from, mentioned)
 					}
 					break
-		case 'listadmin'
+		case 'listadmin':
 					if (!isGroup) return reply(ind.groupo())
 					teks = `List admin of group *${groupMetadata.subject}*\nTotal : ${groupAdmins.length}\n\n`
 					no = 0
@@ -4353,7 +4156,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					await limitAdd(sender)
 					break
                  case 'simi':
-					if (args.length < 1) return reply('Cadê o texto mana?')
+					if (args.length < 1) return reply('Textnya mana kak?')
 					teks = body.slice(5)
 					anu = await simih(teks) //fetchJson(`https://mhankbarbars.herokuapp.com/api/samisami?text=${teks}`, {method: 'get'})
 					//if (anu.error) return reply('Simi ga tau kak')
@@ -4362,16 +4165,16 @@ itsmeiky.on('group-participants-update', async (anu) => {
 		case 'simih':
 					if (!isGroup) return reply(ind.groupo())
 					if (!isGroupAdmins) return reply(ind.admin())
-					if (args.length < 1) return reply('Ative pressione 1, Desative pressione 0')
+					if (args.length < 1) return reply('Mengaktifkan tekan 1, Menonaktif tekan 0')
 					if (Number(args[0]) === 1) {
-						if (isSimi) return reply('*O recurso simi estava ativo antes*')
+						if (isSimi) return reply('*Fitur simi sudah aktif sebelum nya*')
 						samih.push(from)
 						fs.writeFileSync('./database/bot/simi.json', JSON.stringify(samih))
-						reply('Ativar com sucesso o modo simi neste grupo ✔️')
+						reply('Sukses mengaktifkan mode simi di group ini ✔️')
 					} else if (Number(args[0]) === 0) {
 						samih.splice(from, 1)
 						fs.writeFileSync('./database/bot/simi.json', JSON.stringify(samih))
-						reply('Desativando o modo simi com sucesso neste grupo ✔️')
+						reply('Sukes menonaktifkan mode simi di group ini ✔️')
 					} else {
 						reply(ind.satukos())
 					}
@@ -4379,16 +4182,16 @@ itsmeiky.on('group-participants-update', async (anu) => {
 		case 'nsfw':
 					if (!isGroup) return reply(ind.groupo())
 					if (!isGroupAdmins) return reply(ind.admin())
-					if (args.length < 1) return reply('Ative pressione 1, Desative pressione ')
+					if (args.length < 1) return reply('Mengaktifkan tekan 1, Menonaktif tekan ')
 					if (Number(args[0]) === 1) {
-						if (isNsfw) return reply('*O recurso NSFW já estava ativo antes*')
+						if (isNsfw) return reply('*Fitur nsfw sudah aktif sebelum nya*')
 						nsfw.push(from)
 						fs.writeFileSync('./database/bot/nsfw.json', JSON.stringify(nsfw))
-						reply('Ativando o modo nsfw com sucesso neste grupo ✔️')
+						reply('Sukes mengaktifkan mode nsfw di group ini ✔️')
 					} else if (Number(args[0]) === 0) {
 						nsfw.splice(from, 1)
 						fs.writeFileSync('./database/bot/nsfw.json', JSON.stringify(nsfw))
-						reply('Desativando o modo nsfw com sucesso neste grupo ✔️')
+						reply('Sukes menonaktifkan mode nsfw di group ini ✔️')
 					} else {
 						reply(ind.satukos())
 					}
@@ -4396,9 +4199,9 @@ itsmeiky.on('group-participants-update', async (anu) => {
 		case 'leveling':
 					if (!isGroup) return reply(ind.groupo())
 					if (!isGroupAdmins) return reply(ind.admin())
-					if (args.length < 1) return reply('Ative pressione 1, Desative pressione 0')
+					if (args.length < 1) return reply('Mengaktifkan tekan 1, Menonaktif tekan 0')
 					if (args[0] === '1') {
-					if (isLevelingOn) return reply('*O recurso de nível já estava ativo antes*')
+					if (isLevelingOn) return reply('*Fitur level sudah aktif sebelum nya*')
 					_leveling.push(from)
 					fs.writeFileSync('./database/group/leveling.json', JSON.stringify(_leveling))
 					reply(ind.lvlon())
@@ -4411,19 +4214,18 @@ itsmeiky.on('group-participants-update', async (anu) => {
 					}
 					break
 		case 'welcome':
-		case 'bemvindo':
 					if (!isGroup) return reply(ind.groupo())
 					if (!isGroupAdmins) return reply(ind.admin())
-					if (args.length < 1) return reply('Ative pressione 1, Desative pressione 0')
+					if (args.length < 1) return reply('Mengaktifkan tekan 1, Menonaktif tekan 0')
 					if (Number(args[0]) === 1) {
-						if (isWelkom) return reply('*O recurso de boas-vindas já estava ativo antes')
+						if (isWelkom) return reply('*Fitur welcome sudah aktif sebelum nya')
 						welkom.push(from)
 						fs.writeFileSync('./database/bot/welkom.json', JSON.stringify(welkom))
-						reply('❬ SUCESSO ❭ ative o recurso de boas-vindas neste grupo')
+						reply('❬ SUCCSESS ❭ mengaktifkan fitur welcome di group ini')
 					} else if (Number(args[0]) === 0) {
 						welkom.splice(from, 1)
 						fs.writeFileSync('./database/bot/welkom.json', JSON.stringify(welkom))
-						reply('❬ SUCESSO ❭ desative o recurso de boas-vindas neste grupo')
+						reply('❬ SUCCSESS ❭ menonaktifkan fitur welcome di group ini')
 					} else {
 						reply(ind.satukos())
 					}
@@ -4432,20 +4234,20 @@ itsmeiky.on('group-participants-update', async (anu) => {
                                 	if (!isGroup) return reply(mess.only.group)
 					if (!isGroupAdmins) return reply(mess.only.admin)
 					if (!isBotGroupAdmins) return reply(mess.only.Badmin)
-					if (args.length < 1) return reply('Digite 1 para ativar')
+					if (args.length < 1) return reply('Ketik 1 untuk mengaktifkan')
 					if (Number(args[0]) === 1) {
-						if (isAntilink) return reply('O grupo anti-link está ativo')
+						if (isAntilink) return reply('Anti link group sudah aktif')
 						antilink.push(from)
 						fs.writeFileSync('./database/group/antilink.json', JSON.stringify(antilink))
-						reply('Grupo anti-link ativado com sucesso neste grupo ✔️')
+						reply('Sukses mengaktifkan anti link group di group ini ✔️')
 						itsmeiky.sendMessage(from,`Perhatian kepada seluruh member anti link group aktif apabila anda mengirim link group anda akan di kick dari group`, text)
 					} else if (Number(args[0]) === 0) {
-						if (!isAntilink) return reply('O modo de grupo anti-link foi desativado')
+						if (!isAntilink) return reply('Mode anti link group sudah disable')
 						antilink.splice(from, 1)
 						fs.writeFileSync('./database/group/antilink.json', JSON.stringify(antilink))
-						reply('Desativar grupo anti-link com sucesso neste grupo ✔️')
+						reply('Sukes menonaktifkan anti link group di group ini ✔️')
 					} else {
-						reply('1 para ativar, 0 para desativar')
+						reply('1 untuk mengaktifkan, 0 untuk menonaktifkan')
 					}
 					break
                  case 'event':
@@ -4485,7 +4287,7 @@ itsmeiky.on('group-participants-update', async (anu) => {
 		case 'clone':
 					if (!isGroup) return reply(ind.groupo())
 					if (!isOwner) return reply(ind.ownerg()) 
-					if (args.length < 1) return reply(' *Marca Pessoa Que Deseja Clonar Foto* ')
+					if (args.length < 1) return reply(' *TAG YANG MAU DI CLONE!!!* ')
 					if (iky.message.extendedTextMessage === undefined || iky.message.extendedTextMessage === null) return reply('❬ SUCCSESS ❭')
 					mentioned = iky.message.extendedTextMessage.contextInfo.mentionedJid[0]
 					let { jid, id, notify } = groupMembers.find(x => x.jid === mentioned)
@@ -4493,14 +4295,14 @@ itsmeiky.on('group-participants-update', async (anu) => {
 						pp = await itsmeiky.getProfilePicture(id)
 						buffer = await getBuffer(pp)
 						itsmeiky.updateProfilePicture(botNumber, buffer)
-						mentions(`Foto do perfil atualizada com sucesso usando a foto do perfil @${id.split('@')[0]}`, [jid], true)
+						mentions(`Foto profile Berhasil di perbarui menggunakan foto profile @${id.split('@')[0]}`, [jid], true)
 					} catch (e) {
 						reply(ind.stikga())
 					}
 					await limitAdd(sender)
 					break
 				case 'wait':
-					if (!isPremium) return reply('Desculpe, você não é um usuário premium!')
+					if (!isPremium) return reply('Maaf kamu bukan user premium!')
 					if ((isMedia && !iky.message.videoMessage || isQuotedImage) && args.length == 0) {
 						reply(ind.wait())
 						const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(iky).replace('quotedM','m')).message.extendedTextMessage.contextInfo : iky
