@@ -123,8 +123,8 @@ exports.reglevelahf = (command, pushname, getLevelingLevel, sender, ahf) => {
 //If INFO DEVELOPER not in change, its okey!!
 exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp, _registered, uangku, role) => { 
 	return `「 *GG BOT* 」
-  ◪ *INFO DO DONO*
-  ❏ Nome: Tiago
+  ◪ *INFO DEVELOPER*
+  ❏ Nama: Tiago
   ❏ Wa: wa.me/553398091185
   ❏ Ig: https://instagram.com/tiago.lve
   ----------------------------------
@@ -192,6 +192,7 @@ exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp
   
 ◪ *ANIME*◪
   ├─ ❏ ${prefix}loli
+  ├─ ❏ ${prefix}loli2
   ├─ ❏ ${prefix}neko
   ├─ ❏ ${prefix}waifu
   ├─ ❏ ${prefix}animecry
@@ -206,6 +207,15 @@ exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp
   │
   │ *KPOP*
   ├─ ❏ ${prefix}randomkpop
+  ├─ ❏ ${prefix}randombts
+  ├─ ❏ ${prefix}randommexo
+  │  
+  │
+  │   *FOTOS*
+  ├─ ❏ ${prefix}fotogame
+  ├─ ❏ ${prefix}fotocyberspace
+  ├─ ❏ ${prefix}fotoislamic
+  ├─ ❏ ${prefix}fotomontanha
   │
   │ *DESENHO ANIMADO*
   ├─ ❏ ${prefix}doraemon
@@ -282,6 +292,7 @@ exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp
   |
   ├─ ❏ ${prefix}blowjob
   ├─ ❏ ${prefix}randomhentai
+  ├─ ❏ ${prefix}hentai2
   └─ ❏ ${prefix}nsfwneko
   
 ◪ *FUN*
