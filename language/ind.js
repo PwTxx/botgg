@@ -123,7 +123,7 @@ exports.reglevelahf = (command, pushname, getLevelingLevel, sender, ahf) => {
 //If INFO DEVELOPER not in change, its okey!!
 exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp, _registered, uangku, role) => { 
 	return `「 *GG BOT* 」
-  ◪ *INFO DEVELOPER*
+ ◪ *INFO DEVELOPER*
   ❏ Nama: Tiago
   ❏ Wa: wa.me/553398091185
   ❏ Ig: https://instagram.com/tiago.lve
@@ -216,17 +216,26 @@ exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp
   ├─ ❏ ${prefix}fotocyberspace
   ├─ ❏ ${prefix}fotoislamic
   ├─ ❏ ${prefix}fotomontanha
-  │
+  ├─ ❏ ${prefix}ceu
+  ├─ ❏ ${prefix}bike
+  ├─ ❏ ${prefix}moto
+  ├─ ❏ ${prefix}carro
+  ├─ ❏ ${prefix}sorvete
+  ├─ ❏ ${prefix}visualizar
+  ├─ ❏ ${prefix}cozinheiro
+  ├─ ❏ ${prefix}palavras
+  ├─ ❏ ${prefix}palavrasmotivacionais
+  ├─ ❏ ${prefix}vida
+ 
   │ *DESENHO ANIMADO*
   ├─ ❏ ${prefix}doraemon
   ├─ ❏ ${prefix}pokemon
   │
   │ *ANIMAL*
-  ├─ ❏ ${prefix}anjing
-  ├─ ❏ ${prefix}kucing
+  ├─ ❏ ${prefix}dog
+  ├─ ❏ ${prefix}gato
   ├─ ❏ ${prefix}hamster
-  ├─ ❏ ${prefix}kelinci
-  │
+  ├─ ❏ ${prefix}Coelho
   │
 
 ◪ *LIMITE & MONEY*
@@ -237,7 +246,7 @@ exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp
   ├─ ❏ ${prefix}transfer
   └─ ❏ ${prefix}leaderboard
   
-◪ *GROUP*
+◪ *GRUPO*
   │
   ├─ ❏ ${prefix}promover [@tag]
   ├─ ❏ ${prefix}rebaixar [@tag]
@@ -268,7 +277,7 @@ exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp
   ├─ ❏ ${prefix}leveling [1/0]
   └─ ❏ ${prefix}simih [1/0]
   
-◪ *SOUND*
+◪ *VOZ DO GOOGLE*
   │
   └─ ❏ ${prefix}gtts
   
